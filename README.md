@@ -1,6 +1,6 @@
 # the-blog
 
-Welcome! <img alt="kami" src="https://cdn.discordapp.com/attachments/509601705789358083/673662258546606122/Kami.png" width="70">
+Welcome! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img alt=":kami:" src="https://cdn.discordapp.com/attachments/509601705789358083/673662258546606122/Kami.png" width="25">
 
 This is where we'll keep the codebase for the blog, and potentially the content too (might need to exlude images and store those elsewhere, we'll see). The content will be backed up in Google Docs - you can keep images inline in those documenents and GDocs stores them at full-resolution, and easy to extract.
 
