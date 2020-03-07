@@ -743,7 +743,8 @@ figcaption {
   font-size: 36px;
   line-height: 42px;
   font-weight: 400;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
+  text-transform: initial;
 }
 
 .h2.cc-title-section {
@@ -778,7 +779,7 @@ figcaption {
   text-transform: uppercase;
 }
 
-.post-author:hover {
+a.post-author:hover {
   text-decoration: underline;
 }
 
@@ -1001,10 +1002,6 @@ figcaption {
   letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-.section-title-text:hover {
-  text-decoration: underline;
 }
 
 ._2-collection-item {

@@ -5,7 +5,7 @@ require 'data/authors.php';
 require 'data/categories.php';
 require 'data/posts.php';
 
-// this page's custom header variables
+// this page's custom variables
 $pagetitle = ''; 		// None. the homepage simply reads "Traversalist"
 
 

@@ -1,2 +1,15 @@
+# log php errors
 php_flag log_errors on
-php_value error_log logs/php-errors.txt
+php_value error_log logs/php-errors.log
+
+# prevent access to error logs
+#<FilesMatch "\.(log)$">
+#	Order Allow,Deny
+#	Deny from all
+#</FilesMatch>
+
+# prevent access to any files ending in .htaccess or .file
+<FilesMatch "\.(htaccess|file)$">
+	Order Allow,Deny
+	Deny from all
+</FilesMatch>

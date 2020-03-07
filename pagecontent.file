@@ -4,20 +4,20 @@
 			<div class="w-dyn-list">
 				<div class="w-dyn-items">
 					<div class="top-post-item w-dyn-item">
-						<a href="post/japan-house-opens" class="top-post-image w-inline-block">
-							<img src="./home_files/5e62813d87cd3cc4f44bb295_image-15.jpg" alt="" 
+						<a href="posts/<?= $top_post_slug ?>" class="top-post-image w-inline-block">
+							<img src="./home_files/<?= $top_post['image'] ?>" alt="" 
 							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, 56vw"
 							xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w" 
 							class="post-image">
 						</a>
 						<div class="top-post-text">
-							<a href="category/illustration" class="category-link">Illustration</a>
-							<a href="post/japan-house-opens" class="top-post-link-block w-inline-block">
-								<h2 class="h2">Japan House opens in mountainside to foster peak creativity.</h2>
+							<a href="category/<?= $categories[$top_post['category']]['slug'] ?>" class="category-link"><?= $categories[$top_post['category']]['name'] ?></a>
+							<a href="posts/<?= $top_post_slug ?>" class="top-post-link-block w-inline-block">
+								<h2 class="h2"><?= $top_post['title'] ?></h2>
 							</a>
-							<div class="post-short-text">Enim omittam qui id, ex quo atqui dictas complectitur. Nec ad timeam accusata, hinc justo falli id eum, ferri novum molestie eos cu.</div>
+							<div class="post-short-text"><?= $top_post['description'] ?></div>
 							<div class="post-author-text">
-								<div class="post-author cc-top-margin">By</div><a href="author/reta-torphy" class="post-author">Reta Torphy</a>
+								<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$top_post['author']]['slug'] ?>" class="post-author"><?= $authors[$top_post['author']]['name'] ?></a>
 							</div>
 						</div>
 					</div>
@@ -31,67 +31,28 @@
 		<div class="posts-wrapper">
 			<div class="posts-collection-list-wrapper w-dyn-list">
 				<div class="posts-collection-list w-dyn-items w-row">
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="post/helmut-lang-celebrates" class="posts-image w-inline-block">
-							<img src="./home_files/5e62813d87cd3c4f844bb293_image-14.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-							xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" 
-							class="image">
-						</a>
-						<div class="post-info-text">
-							<a href="category/photography" class="category-link">Photography</a>
-							<a href="posts/helmut-lang-celebrates" class="post-title w-inline-block">
-								<h3 class="h3">Helmut Lang celebrates taxi drivers worldwide in latest campaign</h3>
-							</a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/alessandra-ortiz" class="post-author">Alessandra Ortiz</a></div>
-						</div>
-					</div>
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="posts/bowlcut-launch-a-new-summer-collection" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3ccd9c4bb291_image-13.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13.jpg 1700w" class="image"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/bowlcut-launch-a-new-summer-collection" class="post-title w-inline-block"><h3 class="h3">Bowlcut launch a new summer collection that pays homage to “UK legends”</h3></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/rosanna-ondricka" class="post-author">Rosanna Ondricka</a></div>
-						</div>
-					</div>
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="posts/thousands-of-previously-unseen-photographs" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3cf53f4bb28f_image-12.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12.jpg 1700w" class="image"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/thousands-of-previously-unseen-photographs" class="post-title w-inline-block"><h3 class="h3">Thousands of previously unseen photographs by Andy Warhol will be made public this Autumn</h3></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/adonis-lueilwitz" class="post-author">Annie Lueilwitz</a></div>
-						</div>
-					</div>
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="posts/yinka-ilori" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c842b4bb28d_image-11.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11.jpg 1700w" class="image"></a>
-						<div class="post-info-text"><a href="category/interactive-design" class="category-link">Interactive Design</a><a href="posts/yinka-ilori" class="post-title w-inline-block"><h3 class="h3">London-based Yinka Ilori’s storytelling furniture</h3></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/adonis-lueilwitz" class="post-author">Annie Lueilwitz</a></div>
-						</div>
-					</div>
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="posts/anonymous-israeli-art-collective" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c06a04bb28b_image-10.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10.jpg 1700w" class="image"></a>
-						<div class="post-info-text"><a href="category/graphic-design" class="category-link">Graphic Design</a><a href="posts/anonymous-israeli-art-collective" class="post-title w-inline-block"><h3 class="h3">Anonymous Israeli art collective Broken Fingaz direct music video for U2 and Beck</h3></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/simeon-brekke" class="post-author">Simeon Brekke</a></div>
-						</div>
-					</div>
-					<div class="_3-collection-item w-dyn-item w-col w-col-4">
-						<a href="posts/suzanne-saroff" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c77044bb289_image-9.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9.jpg 1700w" class="image"></a>
-						<div class="post-info-text"><a href="category/architecture" class="category-link">Architecture</a><a href="posts/suzanne-saroff" class="post-title w-inline-block"><h3 class="h3">Suzanne Saroff’s meticulously arranged photographs alter perceptions</h3></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/reta-torphy" class="post-author">Reta Torphy</a></div>
-						</div>
-					</div>
+					<?php
+						foreach (addl_top_posts() as $slug => $post) {
+							?>
+								<div class="_3-collection-item w-dyn-item w-col w-col-4">
+									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" 
+										class="image">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="posts/<?= $slug ?>" class="post-title w-inline-block">
+											<h3 class="h3"><?= $post['title'] ?></h3>
+										</a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a></div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
 				</div>
 			</div>
 		</div>
@@ -112,13 +73,15 @@
 						foreach (latest_posts(8) as $slug => $post) {
 							?>
 								<div class="_4-collection-item w-dyn-item w-col w-col-3">
-									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block"><img src="./home_files/<?= $post['image'] ?>" alt="" 
+									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="./home_files/<?= $post['image'] ?>" alt="" 
 										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w" class="image-2">
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w"
+										class="image-2">
 									</a>
 									<div class="post-info-text">
 										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
-										<a href="posts/<?= $slug ?>" class="post-title w-inline-block"><h2 class="h3"><?= $post['title'] ?> (<?= $post['date'] ?>)</h2></a>
+										<a href="posts/<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
 										<div class="post-author-text cc-small-thumbnail">
 											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
 										</div>
@@ -127,80 +90,8 @@
 							<?php						
 						}
 					?>
-					<!-- <div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/japan-house-opens" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3cc4f44bb295_image-15.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/illustration" class="category-link">Illustration</a><a href="posts/japan-house-opens" class="post-title w-inline-block"><h2 class="h3">Japan House opens in mountainside to foster peak creativity. </h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/reta-torphy" class="post-author">Reta Torphy</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/helmut-lang-celebrates" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c4f844bb293_image-14.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/helmut-lang-celebrates" class="post-title w-inline-block"><h2 class="h3">Helmut Lang celebrates taxi drivers worldwide in latest campaign</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/alessandra-ortiz" class="post-author">Alessandra Ortiz</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/bowlcut-launch-a-new-summer-collection" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3ccd9c4bb291_image-13.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3ccd9c4bb291_image-13.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/bowlcut-launch-a-new-summer-collection" class="post-title w-inline-block"><h2 class="h3">Bowlcut launch a new summer collection that pays homage to “UK legends”</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/rosanna-ondricka" class="post-author">Rosanna Ondricka</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/thousands-of-previously-unseen-photographs" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3cf53f4bb28f_image-12.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cf53f4bb28f_image-12.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/thousands-of-previously-unseen-photographs" class="post-title w-inline-block"><h2 class="h3">Thousands of previously unseen photographs by Andy Warhol will be made public this Autumn</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/adonis-lueilwitz" class="post-author">Annie Lueilwitz</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/yinka-ilori" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c842b4bb28d_image-11.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c842b4bb28d_image-11.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/interactive-design" class="category-link">Interactive Design</a><a href="posts/yinka-ilori" class="post-title w-inline-block"><h2 class="h3">London-based Yinka Ilori’s storytelling furniture</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/adonis-lueilwitz" class="post-author">Annie Lueilwitz</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/anonymous-israeli-art-collective" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c06a04bb28b_image-10.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c06a04bb28b_image-10.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/graphic-design" class="category-link">Graphic Design</a><a href="posts/anonymous-israeli-art-collective" class="post-title w-inline-block"><h2 class="h3">Anonymous Israeli art collective Broken Fingaz direct music video for U2 and Beck</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/simeon-brekke" class="post-author">Simeon Brekke</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/suzanne-saroff" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c77044bb289_image-9.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c77044bb289_image-9.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/architecture" class="category-link">Architecture</a><a href="posts/suzanne-saroff" class="post-title w-inline-block"><h2 class="h3">Suzanne Saroff’s meticulously arranged photographs alter perceptions</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/reta-torphy" class="post-author">Reta Torphy</a></div>
-						</div>
-					</div>
-					<div class="_4-collection-item w-dyn-item w-col w-col-3">
-						<a href="posts/anu-ambasna" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c800b4bb287_image-8.jpg" alt="" 
-							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c800b4bb287_image-8-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c800b4bb287_image-8-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c800b4bb287_image-8-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c800b4bb287_image-8-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c800b4bb287_image-8.jpg 1700w" class="image-2"></a>
-						<div class="post-info-text"><a href="category/graphic-design" class="category-link">Graphic Design</a><a href="posts/anu-ambasna" class="post-title w-inline-block"><h2 class="h3">Anu Ambasna’s playful illustrations celebrate club culture, brown bodies and perfect paunches</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/leopoldo-bartell" class="post-author">Leo Bartell</a></div>
-						</div>
-					</div> -->
 				</div>
-			</div><a href="latest-posts" class="button w-button">view all latest posts</a></div>
+			</div><a href="latest" class="button w-button">for those who sort by new</a></div>
 	</div>
 </div>
 <div class="separator">
@@ -210,46 +101,31 @@
 </div>
 <div class="featured-posts">
 	<div class="container">
-		<div class="section-title-text">featured POSTS</div>
+		<div class="section-title-text">Featured Posts</div>
 		<div class="posts-wrapper">
 			<div class="posts-collection-list-wrapper w-dyn-list">
 				<div class="posts-collection-list w-dyn-items w-row">
-					<div class="_2-collection-item w-dyn-item w-col w-col-6">
-						<a href="posts/a-brief-history" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c26cc4bb273_image_large.jpg" alt="" 
-							xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" class="image-3"></a>
-						<div class="post-info-text"><a href="category/graphic-design" class="category-link">Graphic Design</a><a href="posts/a-brief-history" class="post-title w-inline-block"><h2 class="h3">A Brief History of the FIFA World Cup Logo</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/nels-armstrong" class="post-author">Clem Onojeghuo</a></div>
-						</div>
-					</div>
-					<div class="_2-collection-item w-dyn-item w-col w-col-6">
-						<a href="posts/la-design-guide" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c10c54bb274_image-1.jpg" alt="" 
-							xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c10c54bb274_image-1-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c10c54bb274_image-1-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c10c54bb274_image-1-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c10c54bb274_image-1-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c10c54bb274_image-1.jpg 1700w" class="image-3"></a>
-						<div class="post-info-text"><a href="category/graphic-design" class="category-link">Graphic Design</a><a href="posts/la-design-guide" class="post-title w-inline-block"><h2 class="h3">Need a guide to LA’s graphic design scene? Shoplifters’ new issue has got your back</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/alessandra-ortiz" class="post-author">Alessandra Ortiz</a></div>
-						</div>
-					</div>
-					<div class="_2-collection-item w-dyn-item w-col w-col-6">
-						<a href="posts/fred-rowson" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c48aa4bb275_image-2.jpg" alt="" 
-							xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c48aa4bb275_image-2-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c48aa4bb275_image-2-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c48aa4bb275_image-2-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c48aa4bb275_image-2-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c48aa4bb275_image-2.jpg 1700w" class="image-3"></a>
-						<div class="post-info-text"><a href="category/photography" class="category-link">Photography</a><a href="posts/fred-rowson" class="post-title w-inline-block"><h2 class="h3">Fred Rowson directs film for Years and Years</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/coby-gottlieb" class="post-author">Coby Gottlieb</a></div>
-						</div>
-					</div>
-					<div class="_2-collection-item w-dyn-item w-col w-col-6">
-						<a href="posts/mc-saatchi-fontsmith" class="posts-image w-inline-block"><img src="./home_files/5e62813d87cd3c58e54bb276_image-3.jpg" alt="" 
-							xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
-						xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c58e54bb276_image-3-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c58e54bb276_image-3-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c58e54bb276_image-3.jpg 1700w" class="image-3"></a>
-						<div class="post-info-text"><a href="category/illustration" class="category-link">Illustration</a><a href="posts/mc-saatchi-fontsmith" class="post-title w-inline-block"><h2 class="h3">M&amp;C Saatchi and Fontsmith collaborate on font collection for House of St Barnabas</h2></a>
-							<div class="post-author-text cc-small-thumbnail">
-								<div class="post-author cc-top-margin">By</div><a href="author/adonis-lueilwitz" class="post-author">Annie Lueilwitz</a></div>
-						</div>
-					</div>
+					<?php
+						foreach (featured_posts() as $slug => $post) {
+							?>
+								<div class="_2-collection-item w-dyn-item w-col w-col-6">
+									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
+										class="image-3">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="posts/<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+										</div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
 				</div>
 			</div>
 		</div>
