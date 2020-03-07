@@ -8,6 +8,10 @@ This is where we'll keep the codebase for the blog, and potentially the content 
 
 I like to to use the Issues tab here to keep track of **ideas for new features** (and of course to track issues/bugs). Any ideas you have, please feel free to add as an issue, and we can discuss in the comment thread there. Alternatively, you can def just drop your ideas in Discord, and I'll create the Issue myself. Do what you like! `Feel f r e e.`
 
+### Dev/Staging vs Production
+
+There's a staging/development site at https://trav-dev.benhickson.com/ and commits are generally made to a branch named `dev` and then merged into production/`master` after testing.
+
 <br>
 
 ## Setup Notes
