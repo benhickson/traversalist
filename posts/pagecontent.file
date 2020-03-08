@@ -1,0 +1,64 @@
+<div class="title-section">
+	<div class="container cc-center">
+		<div class="text-container">
+			<a href="category/<?= $categories[$top_post['category']]['slug'] ?>" class="section-title-text w-inline-block">
+				<div class="post-category-text"><?= $categories[$top_post['category']]['name'] ?></div>
+			</a>
+			<h1 class="h1"><?= $post['title'] ?></h1>
+			<div class="post-author-text cc-center">
+				<div style="background-image:url(&quot;home_files/<?= $authors[$post['author']]['image'] ?>&quot;)" class="author-image-wrapper"></div>
+					<a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+				</div>
+		</div>
+	</div>
+</div>
+<div class="post-image">
+	<div class="container cc-post-image"><img src="home_files/<?= $post['image'] ?>" alt="" 
+		xsizes="100vw" 
+		xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2000.jpeg 2000w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2600.jpeg 2600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image.jpg 3000w" 
+		class="image-4"></div>
+</div>
+<div class="post-content">
+	<div class="post-content-wrapper">
+		<div class="rich-text w-richtext">
+			<?php require '../data/post-content/'.$post['content_html']; ?>
+		</div>
+	</div>
+</div>
+<div class="separator">
+	<div class="separator-container">
+		<div class="line-color"></div>
+	</div>
+</div>
+<div class="featured-posts">
+	<div class="container">
+		<div class="section-title-text">Featured Posts</div>
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php
+						foreach (featured_posts() as $slug => $post) {
+							?>
+								<div class="_2-collection-item w-dyn-item w-col w-col-6">
+									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
+										class="image-3">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="posts/<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+										</div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,3 +13,10 @@ php_value error_log logs/php-errors.log
 	Order Allow,Deny
 	Deny from all
 </FilesMatch>
+
+# for post request mapping
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^posts/(.*)?$ posts/?slug=$1 [L]
+
