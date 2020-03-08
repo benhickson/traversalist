@@ -40,7 +40,7 @@
 						foreach (featured_posts() as $slug => $post) {
 							?>
 								<div class="_2-collection-item w-dyn-item w-col w-col-6">
-									<a href="posts/<?= $slug ?>" class="posts-image w-inline-block">
+									<a href="<?= $slug ?>" class="posts-image w-inline-block">
 										<img src="./home_files/<?= $post['image'] ?>" alt="" 
 										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
 										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
@@ -48,7 +48,7 @@
 									</a>
 									<div class="post-info-text">
 										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
-										<a href="posts/<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<a href="<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
 										<div class="post-author-text cc-small-thumbnail">
 											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
 										</div>
