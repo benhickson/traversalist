@@ -12,7 +12,13 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 
 ## Setup Notes
 
-Here's where I'll keep track of setup notes, to make re-creating this server a breeze, should we ever want or need to.
+### DotEnv
+
+1. If you don't already have composer installed on your system, <a href="https://getcomposer.org/download/" target="_blank">install it here</a>.
+2. Run `composer install`
+3. The DotEnv module should now be installed.
+4. Copy the `.env.example` file to `.env`. **DO NOT** delete the original!
+5. Make the necessary changes to the environment variables
 
 <br><br><br>
 <img alt=":kami:" src="https://cdn.discordapp.com/attachments/509601705789358083/673662258546606122/Kami.png" width="55">
