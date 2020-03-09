@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><?php echo $pagetitle; ?>Traversalist</title>
 	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<base href="/">
+	<base href="<?php getenv('BASE_URL'); ?>">
 	<link href="home_files/the-blog-fd0f78.webflow.37a438276.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="home_files/css" media="all">
 	<script src="home_files/webfont.js" type="text/javascript"></script>
