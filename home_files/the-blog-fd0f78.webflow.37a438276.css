@@ -580,7 +580,6 @@ figcaption {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-image: url("https://uploads-ssl.webflow.com/5e62813d6f97347182840434/5e62813d87cd3c4d1f4bb234_image-header.jpg");
   background-position: 50% 50%;
   background-size: cover;
 }
