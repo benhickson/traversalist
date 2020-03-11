@@ -1111,7 +1111,6 @@ a.post-author:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -1120,6 +1119,21 @@ a.post-author:hover {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
+  padding-top: 70%;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-image img{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
 }
 
 .team-member-info {
@@ -1146,6 +1160,11 @@ a.post-author:hover {
 
 .collection-list-wrapper-7 {
   margin: -25px -10px;
+}
+
+.collection-list-wrapper-7#author-list {
+  width: 102%; /* For non-calc browsers */
+  width: calc(100% + 20px);
 }
 
 .contact-item-wrapper {
