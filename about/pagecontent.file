@@ -1,5 +1,5 @@
 
-    <div class="header" style='background-image: url("../home_files/5e62813d87cd3c4d1f4bb234_image-header.jpg');"></div>
+    <div class="header" style='background-image: url("<?php echo getenv('BASE_URL'); ?>/home_files/5e62813d87cd3c4d1f4bb234_image-header.jpg');"></div>
 <div class="about-blog">
     <div class="container cc-center">
         <div class="text-container">
@@ -27,7 +27,7 @@
 
                     <?php foreach ($authors as $author) { ?>
                         <div class="team-collection-item w-dyn-item w-col w-col-3">
-                            <div class="team-image"><img src="../home_files/<?= $author['image'] ?>" alt="Image of Author <?= $author['name'] ?>" title=""></div>
+                            <div class="team-image"><img src="<?php echo getenv('BASE_URL'); ?>/home_files/<?= $author['image'] ?>" alt="Image of Author <?= $author['name'] ?>" title=""></div>
                             <div class="team-member-info">
                                 <div class="team-member-name"><?= $author['name'] ?></div>
                                 <div class="team-member-role"><?= $author['role'] ?></div>
