@@ -30,7 +30,7 @@
                             <div class="team-image"><img src="../home_files/<?= $author['image'] ?>" alt="Image of Author <?= $author['name'] ?>" title=""></div>
                             <div class="team-member-info">
                                 <div class="team-member-name"><?= $author['name'] ?></div>
-                                <div class="team-member-role"><?= $author['description'] ?></div>
+                                <div class="team-member-role"><?= $author['role'] ?></div>
                             </div>
                         </div>
                     <?php } ?>
