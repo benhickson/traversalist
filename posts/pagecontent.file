@@ -6,14 +6,14 @@
 			</a>
 			<h1 class="h1"><?= $post['title'] ?></h1>
 			<div class="post-author-text cc-center">
-				<div style="background-image:url(&quot;home_files/<?= $authors[$post['author']]['image'] ?>&quot;)" class="author-image-wrapper"></div>
+				<div style="background-image:url(&quot;images/<?= $authors[$post['author']]['image'] ?>&height=60&quality=60&format=jpeg&quot;)" class="author-image-wrapper"></div>
 					<a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
 				</div>
 		</div>
 	</div>
 </div>
 <div class="post-image">
-	<div class="container cc-post-image"><img src="home_files/<?= $post['image'] ?>" alt="" 
+	<div class="container cc-post-image"><img src="images/<?= $post['image'] ?>&height=1840&quality=80&format=jpeg" alt="" 
 		xsizes="100vw" 
 		xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2000.jpeg 2000w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2600.jpeg 2600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image.jpg 3000w" 
 		class="image-4"></div>
@@ -41,7 +41,7 @@
 							?>
 								<div class="_2-collection-item w-dyn-item w-col w-col-6">
 									<a href="<?= $slug ?>" class="posts-image w-inline-block">
-										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										<img src="./images/<?= $post['image'] ?>&height=780&quality=70&format=jpeg" alt="" 
 										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
 										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
 										class="image-3">

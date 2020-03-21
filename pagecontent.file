@@ -5,7 +5,7 @@
 				<div class="w-dyn-items">
 					<div class="top-post-item w-dyn-item">
 						<a href="<?= $top_post_slug ?>" class="top-post-image w-inline-block">
-							<img src="./home_files/<?= $top_post['image'] ?>" alt="" 
+							<img src="images/<?= $top_post['image'] ?>&height=950&quality=80&format=jpeg" alt="" 
 							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, 56vw"
 							xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w" 
 							class="post-image">
@@ -36,7 +36,7 @@
 							?>
 								<div class="_3-collection-item w-dyn-item w-col w-col-4">
 									<a href="<?= $slug ?>" class="posts-image w-inline-block">
-										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										<img src="images/<?= $post['image'] ?>&height=510&quality=80&format=jpeg" alt="" 
 										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
 										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" 
 										class="image">
@@ -65,7 +65,7 @@
 </div>
 <div class="latest-posts">
 	<div class="container">
-		<div class="section-title-text">LATEST POSTS</div>
+		<div class="section-title-text">Latest Posts</div>
 		<div class="posts-wrapper">
 			<div class="posts-collection-list-wrapper w-dyn-list">
 				<div class="posts-collection-list w-dyn-items w-row">
@@ -74,7 +74,7 @@
 							?>
 								<div class="_4-collection-item w-dyn-item w-col w-col-3">
 									<a href="<?= $slug ?>" class="posts-image w-inline-block">
-										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										<img src="images/<?= $post['image'] ?>&height=792&quality=80&format=jpeg" alt="" 
 										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
 										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w"
 										class="image-2">
@@ -110,7 +110,7 @@
 							?>
 								<div class="_2-collection-item w-dyn-item w-col w-col-6">
 									<a href="<?= $slug ?>" class="posts-image w-inline-block">
-										<img src="./home_files/<?= $post['image'] ?>" alt="" 
+										<img src="images/<?= $post['image'] ?>&height=792&quality=80&format=jpeg" alt="" 
 										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
 										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
 										class="image-3">
