@@ -32,12 +32,16 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 	```sh
 	sudo apxs -cia -Wc,"-arch i386 -arch x86_64" -Wl,"-arch i386 -arch x86_64" mod_xsendfile.c
 	```
-3. Install ImageMagick and the imagick php module. On Ubuntu, this can be done in one command:
+3. Add this line to your apache config to enable files to be served from that path:
+	```apache
+	XSendFilePath /path/to/traversalist/images/optimezed
+	```
+4. Install ImageMagick and the imagick php module. On Ubuntu, this can be done in one command:
 	```sh
 	sudo apt-get install php-imagick
 	```
-4. Restart Apache. Check `phpinfo()` to confirm that the two modules are loaded.
-5. Set the folder `images/optimized` with permissions `777` to enable new files to be created.
+5. Restart Apache. Check `phpinfo()` to confirm that the two modules are loaded.
+6. Set the folder `images/optimized` with permissions `777` to enable new files to be created.
 	```sh
 	chmod 777 images/optimized
 	```
