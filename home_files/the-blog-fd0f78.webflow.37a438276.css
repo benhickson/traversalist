@@ -1630,6 +1630,7 @@ a.post-author:hover {
     height: 30vh;
     -o-object-fit: cover;
     object-fit: cover;
+    overflow: hidden;
   }
   .image {
     width: 100%;
