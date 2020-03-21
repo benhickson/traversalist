@@ -14,6 +14,12 @@ php_value error_log logs/php-errors.log
 	Deny from all
 </FilesMatch>
 
+# for image engine
+XSendFile on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
+
 # for post request mapping
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -21,12 +27,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^posts/(.*)?$ posts/?slug=$1 [L]
 RewriteRule ^(.*)?$ posts/?slug=$1 [L]
 
-# for image engine
-XSendFile on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
-
 # NOTE: for image engine, this needs to be set in the apache config file,
 #		it can't be set in .htaccess
 # XSendFilePath /path/you/want/to/serve/from
+
+# images/5e62813d87cd3c4f844bb293_image-14.jpg&height=1840&quality=80&format=jpeg
