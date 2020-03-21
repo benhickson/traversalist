@@ -22,10 +22,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)?$ posts/?slug=$1 [L]
 
 # for image engine
-# XSendFile on
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
+XSendFile on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
 
 # NOTE: for image engine, this needs to be set in the apache config file,
 #		it can't be set in .htaccess
