@@ -20,5 +20,35 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 4. Copy the `.env.example` file to `.env`. **DO NOT** delete the original!
 5. Make the necessary changes to the environment variables
 
+<!-- <br> -->
+
+### Image Engine: ImageMagick for file creation and XSendFile for serving.
+
+1. Download the source code for XSendFile
+	```sh
+	cd ~ && git clone git@github.com:nmaier/mod_xsendfile.git xsendfile-source && cd xsendfile-source
+	```
+2. Compile the module:
+	```sh
+	sudo apxs -cia -Wc,"-arch i386 -arch x86_64" -Wl,"-arch i386 -arch x86_64" mod_xsendfile.c
+	```
+3. Install ImageMagick and the imagick php module. On Ubuntu, this can be done in one command:
+	```sh
+	sudo apt-get install php-imagick
+	```
+4. Restart Apache. Check `phpinfo()` to confirm that the two modules are loaded.
+5. Set the folder `images/optimized` with permissions `777` to enable new files to be created.
+	```sh
+	chmod 777 images/optimized
+	```
+
+### Log Files
+
+- PHP's log file path is set in `.htaccess`. Set this file's permissions to `666` to avoid issues in writing to it.
+	```sh
+	chmod 666 logs/php-errors.log
+	```
+
+
 <br><br><br>
 <img alt=":kami:" src="https://cdn.discordapp.com/attachments/509601705789358083/673662258546606122/Kami.png" width="55">
