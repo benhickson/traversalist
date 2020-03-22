@@ -18,7 +18,7 @@
         <div class="line-color"></div>
     </div>
 </div>
-<div class="team">
+<div id="team" class="team">
     <div class="container">
         <div class="section-title-big">Our Team</div>
         <div class="posts-wrapper">
