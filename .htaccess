@@ -24,6 +24,12 @@ RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
 		# it can't be set in .htaccess
 		# XSendFilePath /path/you/want/to/serve/from
 
+# for authors
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^author/(.*)?$ author/?author=$1 [L]
+
 # for post request mapping
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
