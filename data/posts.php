@@ -106,3 +106,11 @@ function posts_by($author_key){
 		return ($post['author'] == $author_key);
 	});
 }
+
+// returns the posts in a particular category
+function posts_in($category_key){
+	global $posts;
+	return array_filter($posts, function($post) use ($category_key) {
+		return ($post['category'] == $category_key);
+	});
+}
