@@ -3,4 +3,4 @@ vendor
 .DS_Store
 .vscode/
 images/optimized/*
-!images/optimized/.gitkeep
+!images/optimized/.keep
