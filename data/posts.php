@@ -32,7 +32,7 @@ $placeholder_posts = array(
 						'image'=>'5e62813d87cd3c26cc4bb273_image_large.jpg','content_html'=>'001-japan-lorem.html',
 						'description'=>'Enim omittam qui id, ex quo atqui dictas complectitur. Nec ad timeam accusata, hinc justo falli id eum, ferri novum molestie eos cu.'),
 	'suzanne' => array('title'=>'Suzanne Saroff’s meticulously arranged photographs alter perceptions',
-						'author'=>'sonia','date'=>'2020-06-06','category'=>'il',
+						'author'=>'jimmy','date'=>'2020-06-06','category'=>'il',
 						'image'=>'5e62813d87cd3c06a04bb28b_image-10.jpg','content_html'=>'001-japan-lorem.html',
 						'description'=>'Enim omittam qui id, ex quo atqui dictas complectitur. Nec ad timeam accusata, hinc justo falli id eum, ferri novum molestie eos cu.'),
 	'anu-ambasna' => array('title'=>'Anu Ambasna’s playful illustrations celebrate club culture, brown bodies and perfect paunches',
@@ -89,7 +89,7 @@ function addl_top_posts(){
 	return $addl_top_posts;
 }
 
-// bottom of pages, read more
+// bottom of pages, "featured", read more
 function featured_posts(){
 	global $posts;
 	// 2 or 4 items
@@ -97,4 +97,12 @@ function featured_posts(){
 		['suzanne','london']
 	));
 	return $featured_posts;
+}
+
+// returns the posts by a particular author
+function posts_by($author_key){
+	global $posts;
+	return array_filter($posts, function($post) use ($author_key) {
+		return ($post['author'] == $author_key);
+	});
 }
