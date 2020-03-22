@@ -24,6 +24,8 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 
 ### Image Engine: ImageMagick for file creation and XSendFile for serving.
 
+#### For Mac OSX:
+
 1. Download the source code for XSendFile
 	```sh
 	cd ~ && git clone git@github.com:nmaier/mod_xsendfile.git xsendfile-source && cd xsendfile-source
@@ -32,9 +34,21 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 	```sh
 	sudo apxs -cia -Wc,"-arch i386 -arch x86_64" -Wl,"-arch i386 -arch x86_64" mod_xsendfile.c
 	```
+#### For Debian/Ubuntu:
+
+1. Use apt to download and install XSendFile 
+	```sh
+	sudo apt-get install libapache2-mod-xsendfile
+
+2. Enable XSendFile
+	```sh
+	sudo s2enmod xsendfile
+
+#### For All:
+
 3. Add this line to your apache config to enable files to be served from that path:
 	```apache
-	XSendFilePath /path/to/traversalist/images/optimezed
+	XSendFilePath /path/to/traversalist/images/optimized
 	```
 4. Install ImageMagick and the imagick php module. On Ubuntu, this can be done in one command:
 	```sh
