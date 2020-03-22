@@ -30,6 +30,12 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^author/(.*)?$ author/?author=$1 [L]
 
+# for categories
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^category/(.*)?$ category/?category=$1 [L]
+
 # for post request mapping
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
