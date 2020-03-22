@@ -1,4 +1,8 @@
-
+<style>
+    .author-link:hover .team-member-name{
+        text-decoration: underline;
+    }
+</style>
     <div class="header" style='background-image: url("<?php echo getenv('BASE_URL'); ?>images/5e62813d87cd3c4d1f4bb234_image-header.jpg&height=1792&quality=80&format=jpeg');"></div>
 <div class="about-blog">
     <div class="container cc-center">
@@ -18,7 +22,7 @@
         <div class="line-color"></div>
     </div>
 </div>
-<div class="team">
+<div id="team" class="team">
     <div class="container">
         <div class="section-title-big">Our Team</div>
         <div class="posts-wrapper">
@@ -26,13 +30,15 @@
                 <div class="w-dyn-items w-row">
 
                     <?php foreach ($authors as $author) { ?>
-                        <div class="team-collection-item w-dyn-item w-col w-col-3">
-                            <div class="team-image"><img src="images/<?= $author['image'] ?>&height=400&quality=80&format=jpeg" alt="Image of Author <?= $author['name'] ?>" title=""></div>
-                            <div class="team-member-info">
-                                <div class="team-member-name"><?= $author['name'] ?></div>
-                                <div class="team-member-role"><?= $author['role'] ?></div>
+                        <a href="author/<?= $author['slug'] ?>" class="author-link">
+                            <div class="team-collection-item w-dyn-item w-col w-col-3">
+                                <div class="team-image"><img src="images/<?= $author['image'] ?>&height=400&quality=80&format=jpeg" alt="Image of Author <?= $author['name'] ?>" title=""></div>
+                                <div class="team-member-info">
+                                    <div class="team-member-name"><?= $author['name'] ?></div>
+                                    <div class="team-member-role"><?= $author['role'] ?></div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     <?php } ?>
  
                 </div>
