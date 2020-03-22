@@ -20,6 +20,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^images/(.*)?$ images/?filename=$1 [L]
 
+# NOTE: for image engine, this needs to be set in the apache config file,
+		# it can't be set in .htaccess
+		# XSendFilePath /path/you/want/to/serve/from
+
 # for post request mapping
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -27,6 +31,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule ^posts/(.*)?$ posts/?slug=$1 [L]
 RewriteRule ^(.*)?$ posts/?slug=$1 [L]
 
-# NOTE: for image engine, this needs to be set in the apache config file,
-#		it can't be set in .htaccess
-# XSendFilePath /path/you/want/to/serve/from
+# for favicons
+RewriteRule ^(favicon.ico|browserconfig.xml|manifest.json|safari-pinned-tab.svg|(android-chrome|favicon|mstile)-[0-9]+x[0-9]+.png|apple-touch-icon(-precompressed.png|-[0-9]+x[0-9]+.png|.png)|manifest.json)$ /favicons/$1 [L]
