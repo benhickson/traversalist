@@ -2,7 +2,7 @@
 
 // real categories
 $categories = array(
-
+	'cp' => array('name'=>'Cities and Society', 'slug'=>'city-planning')
 );
 
 // categories for placeholders
@@ -13,7 +13,7 @@ $placeholder_categories = array(
 	'il' => array('name'=>'Illustration','slug'=>'illustration'),
 	'idx' => array('name'=>'Interactive Design','slug'=>'interactive-design'),
 	'misc' => array('name'=>'Miscellaneous','slug'=>'miscellaneous'),
-	'photo' => array('name'=>'Photo Graphy','slug'=>'photography'),
+	'photo' => array('name'=>'Photography','slug'=>'photography'),
 	'pd' => array('name'=>'Product Design','slug'=>'product-design')
 );
 
