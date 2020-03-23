@@ -1,8 +1,8 @@
 <div class="title-section">
 	<div class="container cc-center">
 		<div class="text-container">
-			<a href="category/<?= $categories[$top_post['category']]['slug'] ?>" class="section-title-text w-inline-block">
-				<div class="post-category-text"><?= $categories[$top_post['category']]['name'] ?></div>
+			<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="section-title-text w-inline-block">
+				<div class="post-category-text"><?= $categories[$post['category']]['name'] ?></div>
 			</a>
 			<h1 class="h1"><?= $post['title'] ?></h1>
 			<div class="post-author-text cc-center">
