@@ -116,6 +116,26 @@ img {
   margin-bottom: 0px;
 }
 
+/* Maintaining aspect ratios */
+@media screen and (min-width: 992px) {
+  img{
+    width: 100%;
+    object-fit: cover;
+  }
+  ._4-collection-item img{    
+    height: 187px;
+    max-height: 14.2vw;
+  }
+  ._3-collection-item img{    
+    height: 253px;
+    max-height: 19.8vw;
+  }
+  ._2-collection-item img{    
+    height: 370px;
+    max-height: 30.4vw;
+  }
+}
+
 blockquote {
   margin-top: 40px;
   margin-bottom: 30px;

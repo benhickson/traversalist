@@ -20,6 +20,21 @@ $slug = $_GET['slug'];
 $post = $posts[$slug];
 $pagetitle = substr($posts[$slug]['title'], 0, 50).'...'.' | '; 		// Gets prepended to 'Traversalist'
 
+// create a function to create image blocks
+function insertImageBlock($image_filename, $caption = null){
+	$figcaption = '';
+	if ($caption) {
+		$figcaption = "\n<figcaption>$caption</figcaption>\n";
+	}
+	return 	"
+<figure class=\"w-richtext-figure-type-image w-richtext-align-fullwidth\"	data-rt-type=\"image\" data-rt-align=\"fullwidth\">
+	<div>
+		<img src=\"images/$image_filename&height=1070&quality=80&format=jpeg\">
+	</div>$figcaption
+</figure>
+	";
+}
+
 // build the page
 require '../all/outline.file';
 
