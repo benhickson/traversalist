@@ -2,7 +2,12 @@
 
 // real content
 $posts = array(
-
+	'micro-apartments-wont-solve-the-housing-crisis' => array('title'=>'Micro-sized apartments are not NYC\'s solution to the housing crisis',
+				'author'=>'kyle','date'=>'2020-03-30','category'=>'photo',
+				'image'=>'kyle.jpg','content_html'=>'001-kyle-micro-apartments.html',
+				'description'=>'A dissertation on living space.'
+				)
+				
 );
 
 // placeholder content
