@@ -2,7 +2,7 @@
 
 // real categories
 $categories = array(
-	'cp' => array('name'=>'Cities and Society', 'slug'=>'city-planning')
+	'cp' => array('name'=>'Cities and Society', 'slug'=>'cities-and-society')
 );
 
 // categories for placeholders
