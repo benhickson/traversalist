@@ -63,7 +63,9 @@ $placeholder_posts = array(
 );
 
 // include placeholder content in posts
-$posts = array_merge($posts, $placeholder_posts);
+if (getenv('ENABLE_PLACEHOLDERS') == 'true') {
+	$posts = array_merge($posts, $placeholder_posts);
+}
 
 // this helper function can sort an array of assoc_arrays by a particular key
 // returns a new array, doesn't modify the existing array

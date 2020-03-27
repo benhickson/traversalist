@@ -18,4 +18,6 @@ $placeholder_categories = array(
 );
 
 // include placeholder categories
-$categories = array_merge($categories, $placeholder_categories);
+if (getenv('ENABLE_PLACEHOLDERS') == 'true') {
+	$categories = array_merge($categories, $placeholder_categories);
+}

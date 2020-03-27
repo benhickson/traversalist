@@ -13,4 +13,6 @@ $placeholder_authors = array(
 );
 
 // include placeholder authors
-$authors = array_merge($authors, $placeholder_authors);
+if (getenv('ENABLE_PLACEHOLDERS') == 'true') {
+	$authors = array_merge($authors, $placeholder_authors);
+}
