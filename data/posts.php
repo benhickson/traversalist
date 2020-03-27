@@ -6,8 +6,12 @@ $posts = array(
 				'author'=>'kyle','date'=>'2020-03-30','category'=>'cp',
 				'image'=>'001-photo1.png','content_html'=>'001-kyle-micro-apartments.html',
 				'description'=>'A dissertation on living space.'
-				)
-				
+	),
+	'how-to-fake-an-api' => array('title'=>'How to fake an API when developing your app.',
+				'author'=>'ben','date'=>'2020-03-27','category'=>'pr',
+				'image'=>'001-photo1.png','content_html'=>'002-ben-fake-api.html',
+				'description'=>'A dissertation on living space.'
+	)
 );
 
 // placeholder content

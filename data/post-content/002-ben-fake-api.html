@@ -1,0 +1,200 @@
+<p>Let’s say you want to provide your users with driving directions to your locations, and you want the directions to load on every page load. When you’re designing that page, you’ll want to be able to reload it many times, and quickly, so you can try out adjustments and build functionality. The Google Maps API provides a nice service, but, unfortunately, it’s not lightning-fast, so it would be nice to simply simulate the API at the beginning.</p>
+
+<p>It’s important to first understand your goals. It’s important to model the API in terms of its inputs and outputs so you can simulate it.</p>
+
+<p>You don’t have to model the entire API, because we only need to implement the parts that our application cares about. The point of an interface is that the <i>way</i> something works is unknown, and can remain unknown, and the interface’s clients can still interact with the API successfully. Additionally, an interface need not inform its clients about <i>all</i> interfaces it has available, in fact, the best APIs do that opposite: they give the clients <i>only what they need</i> to serve the need. Consider what makes an API popular. It must not only be novel, useful, reasonable to implement, cost-effective, and performant, but it must also have docs that are easy to read! And the best APIs have fantastic docs.</p>
+
+<h2><i>You don’t need to implement the entire API.</i></h2>
+
+<p>What are the best APIs? You know the ones – the ones that have great example code and beautiful defaults. The ones that have client libraries and code blocks in different languages that the programmer can toggle between. But more importantly, the best docs are opinionated – they are organized in a way that underscores the intention of the service as a whole.</p>
+
+<p>Visual hierarchy is a well-understood concept in the design space, but let’s not limit the metaphor to just one domain. At its foundation, the term “visual hierarchy” illustrates how one can relate <a href="bicameral">two parts of the mind</a>, and use them as a sieve to refine an idea. One part of the mind is told to think rationally, taxonomically, mathematically, procedurally, iteratively... while the other side relies strictly on its sense of instinct and intuition. The “design process” is the union of both aspects of the mind working in concert.</p>
+
+<p>To apply the metaphor, consider the layout of an API, and the layout of the documentation that describes it. Consider the documentation an API itself, an interface for accessing the interface of the API. If the first layer your customer interacts with is disorganized, cluttered, or simply does not bring joy, how can the core service even hope to do so?</p>
+
+<?= insertImageBlock('001-photo2.jpg','As above, so below.') ?>
+
+<p>Faking the API helps you, the programmer, understand how you could be using it better. In identifying the output you need from the service, and enumerating the information you should provide it, we should always challenge our thinking, and respond to our intuition about whether a certain paradigm should exist as it does, or if it could change.</p>
+
+<?= insertImageBlock('001-photo3.jpg', 'It can show you holes in your project planning that you hadn’t foreseen.') ?>
+
+<h1>Let's try it.</h1>
+
+<ol>
+	<li>
+		<h2>Which API am I going to use?</h2>
+		<p>When modeling a particular endpoint, it won’t be effective if it doesn’t give you the data you need. Spend a (short) period of time going through the docs, and find one that provides the data that looks good to you. Know that you can always change this later, so don’t agonize over it, but do be thoughtful. Consider both the information and the format, as some APIs have completely separate endpoints for the similar information in different formats.</p>
+		<p>For our project, we will use the <a href="https://developers.google.com/maps/documentation/directions/start" target="_blank">Google Maps Directions API</a>. It’s accessed in an incredibly straightforward way, a GET request with some basic parameters:</p>
+		<code class="sh"><pre>
+https://maps.googleapis.com/maps/api/directions/json
+?key={{your_api_key}}
+&origin={{user_location}}
+&destination={{store_location}}
+		</pre></code>
+		<p>An API key is required to make the request, and then it only takes a couple parameters, an origin and a destination. Since this is just a simple GET request, we can check the response by just plugging it into our browser and pressing return.</p>
+		<code class="json"><pre>
+{
+	"geocoded_waypoints": [...],
+	"routes": [
+		{
+		"bounds": {...}
+		},
+		"copyrights": "Map data ©2020",
+		"legs": [
+			{
+			"distance": {
+				"text": "11.2 mi",
+				"value": 17981
+			},
+			"duration": {
+				"text": "40 mins",
+				"value": 2404
+			},
+			"end_address": "11 W 53rd St, New York, NY 10019, USA",
+			"end_location": {
+				"lat": 40.7618722,
+				"lng": -73.9773405
+			},
+			"start_address": "Crown Heights, Brooklyn, NY, USA",
+			"start_location": {
+				"lat": 40.6693849,
+				"lng": -73.9421988
+			},
+			"steps": [...],
+			"traffic_speed_entry": [],
+			"via_waypoint": []
+			}
+		],
+		"overview_polyline": {...},
+		"summary": "I-278 E",
+		"warnings": [],
+		"waypoint_order": []
+		}
+	],
+	"status": "OK"
+}  
+		</pre></code>
+		<p><i>Note the use of ellipses to indicate sections collapsed, for brevity.</i></p>
+	</li>
+	<li>
+		<h2>What data do I want from the API?</h2>
+		<p>From a high level, we can see a couple key items we might be interested in. Perhaps, before showing the user all of the individual directions, we first give them some basic details about the journey, so they can decide whether to load the next page. Let’s go with the distance, duration, and status code.</p>
+		<p>Let’s consider machine-ready formats, over the human-readable ones. While it can be tempting to with [‘duration’][‘text’] because we can simply show the user “40 mins”, what if we want to be able to do math with this number? We can easily parse this into its integer “40”, but what about when something is “1 hour, 5 mins”. That might be a bit more difficult to parse, and error prone. Best to go with [‘duration’][‘value’]. Some intuition and division tells us that this is an integer of seconds of time.</p>
+	</li>
+	<li>
+		<h2>What data do I want to give the API?</h2>
+		<p>We’ll be providing the API with our API key, and start and end points (origin and destination) for the journey we would like calculated. It’s important to understand the format of the data that our API expects, but luckily Google Maps is extremely good at parsing addresses, so we can just throw any reasonable address string we like at it, and it should more-or-less work.</p>
+	</li>
+</ol>
+
+<p>Our fake API will be “inverting” all of the above.</p>
+
+<h1>Impersonation time!</h1>
+
+<p>Let’s implement this in ruby, as a class we can interact with and make “requests” to.</p>
+
+<code class="ruby"><pre>
+require 'json'
+
+class MapsAPI
+
+	def get_directions(origin, destination, real_request = false)
+	response = api_endpoint(google_maps_api_key(real_request), origin, destination, real_request)
+	parsed = JSON.parse(response)
+	{
+		'status': parsed['status'],
+		'distance': parsed['routes'][0]['legs'][0]['distance']['value'].to_i,
+		'duration': parsed['routes'][0]['legs'][0]['duration']['value'].to_i
+	}
+	end
+	
+	private
+	
+	def google_maps_api_key(real_request = false)
+	if real_request
+		Rails.application.credentials.google_maps[:api_key]
+	else 
+		'FAKEKEY_FJ8302S93LAAZD'
+	end
+	end
+
+	def api_endpoint(api_key, origin, destination, real_request = false)
+
+	# If any of the fields are not provided
+	if api_key == '' || origin == '' || destination == ''
+		# return early with a status
+		return JSON.generate({'status': 'BAD REQUEST'})
+	end
+
+	if real_request
+		return RestClient.get("https://maps.googleapis.com/maps/api/directions/json?&origin=#{origin}&destination=#{destination}&key=#{api_key}")
+	end
+
+	# some code that returns what we want
+	distance_value = 17981
+	duration_value = 2404
+	status = 'OK'
+
+	output_hash = {"geocoded_waypoints": [], "routes": [{"legs": [{
+		"distance": {"value": distance_value},
+		"duration": {"value": duration_value}
+	}]}],
+		"status": "OK"
+	}
+
+	JSON.generate(output_hash)
+	end
+end	
+</pre></code>
+
+<p>Planning ahead, we’ve built in some optional parameters called ‘real_request’, so we can very easily switch to using the real API when we’re ready. We always want our interfaces to work consistently, regardless of what “magic” is happening inside.</p>
+
+<p>Now we can make requests to this class and get the data we need.</p>
+
+<code class="ruby"><pre>
+maps = MapsAPI.new
+=> #<MapsAPI:0x00007fd004940fd0>
+
+maps.get_directions('Crown Heights, Brooklyn, NY','Museum of Modern Art, Manhattan, NYC')
+=> {:status=>"OK", :distance=>648723, :duration=>1425}    
+</pre></code>
+
+<p>We’ve done it! We now have the ability to develop the rest of our application without incurring unnecessary hits to our real API.</p>
+
+<p>How can we improve this? For one, it would be nice to have our responses be more realistic. Making two different requests should result in different data. The data we return can be random, but still look realistic, so the different pieces of data in the responses should fall into some reasonable constraints, both individually, and relative to each other. Additionally, our API should be deterministic – if you submit the same request, you’d expect to get the same response.</p>
+
+<p><a href="part2">Part 2: Enhancements for a fake API: Realistic Randomness and Determinism</a></p>
+
+
+
+
+
+
+
+<!-- 
+<p>Ea iudico labore deserunt mei, pro ad dicant forensibus dissentiunt, mel id hendrerit incorrupte. Viris laudem malorum an eum, cu quo elit albucius corrumpit. Inani mollis pericula an nec. Modo brute liber ea qui, aeque cetero duo ei.</p>
+<p>Autem docendi persecuti nam ut, ne his diam nibh suscipit, eam augue mentitum menandri ea. Consulatu percipitur et nam, cum ex inermis vocibus. Nobis deterruisset usu in, dicam oporteat apeirian no usu. Vix no evertitur maiestatis, tota idque solet eu eos. Offendit suscipit pri cu. Modo volumus eleifend ut duo, ex euismod signiferumque nec. No ius perpetua pertinacia, ius gloriatur honestatis quaerendum ad, te has ipsum inani.</p>
+<p>Ea sit eruditi definiebas. Causae labitur maiestatis sed in. Qui inani facilisis ne, ut vel menandri mediocritatem. Id utinam postea possit pri, sea no aliquam imperdiet voluptatibus, in usu diceret oportere pertinacia. Deserunt theophrastus mea an.</p>
+<p>Probo ridens epicurei per no, euismod ornatus detraxit mea ex, an nisl impetus suavitate mei. Ut aperiri recusabo facilisis eam, ei his veniam noluisse. Eu facilis disputando eum. Ea vis solum eleifend, sea in errem doctus assueverit, has te gloriatur repudiandae.&nbsp;</p>
+<p>Eu mei nobis bonorum civibus:</p>
+<ul>
+	<li>No vocent postulant neglegentur mei, ea sea tantas viderer, scriptorem appellantur vel at.</li>
+	<li>Illum reformidans mel no. An sea veri nusquam gubergren, ne sea dolor labitur.</li>
+	<li>Aeque integre adipisci nec ne.</li>
+</ul>
+<p>Elitr aliquando vis ne, eum ea omittam adipisci, elitr tation vix ei. Homero inimicus et eos, graece legimus pri cu. Vix ei animal equidem. Quo ne ceteros deseruisse, ut vim movet integre, vel ea amet ferri. Duo agam mutat saperet cu, his at gloriatur moderatius. Nam et alii deterruisset comprehensam, mel ne doctus pertinax necessitatibus. Ipsum error utinam vis no.</p>
+<p>Id nec ullum accumsan, omittam fabellas vis in. Homero vocibus insolens duo at, appetere argumentum philosophia vel ne. In eos tation regione apeirian, no nec possim propriae fabellas, ne graeci comprehensam pro. Sed cu legimus commune, aperiam luptatum eam at. Scaevola scribentur ei his, gubergren elaboraret vim ea.</p>
+<p>Id sale ubique sit. Id eam oblique epicuri. Sit duis placerat molestiae ad, nam ut minim erant definitionem. Argumentum referrentur sea ut, eu eam falli persequeris voluptatibus.</p>
+<figure class="w-richtext-figure-type-image w-richtext-align-fullwidth" data-rt-type="image" data-rt-align="fullwidth">
+	<div><img src="images/5e62813d87cd3c5b724bb2a1_article-image.jpg&height=1070&quality=80&format=jpeg"></div>
+</figure>
+<p>Quo ex dico diam consetetur. Cu sit modo accusam, vis ex denique antiopam urbanitas. Eos no vide fuisset recteque. Fugit suscipit vim ut, mel ad vocibus splendide. Esse doming no mei, cu sit sale tibique.</p>
+<p>Quo doctus impedit expetenda ei, mazim latine id eam. Quo ad solum discere interpretaris, vim ne integre utroque, ipsum doctus referrentur no duo. An impedit tractatos pertinacia sea, homero habemus corrumpit usu ea. Nullam aliquando eam te, mutat constituto eos ne.</p>
+<blockquote>Id sale ubique sit. Id eam oblique epicuri. Sit duis placerat molestiae ad, nam ut minim erant definitionem.</blockquote>
+<p>At albucius legendos torquatos pri, libris appetere delicatissimi ut ius, aliquam praesent mnesarchum his ne. No illud reprehendunt has. In omnesque assueverit mel. Usu debet paulo quando te, eum ut denique conceptam. Mel eros salutatus ex, nulla quaeque ornatus ius te. Mucius Inciderint philosophia el Unica has at. Pro iracundia argumentum at, debet mundi per in. Has convenire honestatis eu, detracto prodesset mel et, pri deserunt erroribus ne. Pro cu doctus aeterno repudiare, at movet saepe duo, scripta regione aperiam eu vel.</p>
+<p>Has saepe tamquam ocurreret te, nam id fierent percipit. Eu qui iusto facilis civibus. Cu pro eros novum urbanitas. Pri illum detraxit signiferumque eu, nec ex congue verear. Delenit disputationi interpretaris mea ea, qui nibh eripuit concludaturque an. Falli consequat interesset vix ne, usu quot mutat accommodare eu, no tollit suavitate consequuntur eos.</p>
+
+
+
+<p>Enim omittam qui id, ex quo atqui dictas complectitur. Nec ad timeam accusata, hinc justo falli id eum, ferri novum molestie eos cu. Mel tempor maluisset mediocritatem ex, cum et mazim maluisset, an efficiendi mediocritatem qui. Has quem platonem in, quo ei dolore quidam adipisci. Ne falli persius sed, ne sed aliquid gubergren. Sint minimum assentior ut eam. An tale novum vis, vel an augue nulla sanctus, perpetua salutandi eum ut. Ei case porro choro sed, ea nibh brute pri. Nobis platonem et vim, simul recteque duo ex.</p>
+<p>Nec albucius vivendum argumentum id, periculis efficiantur nec an, facilis nominavi pertinacia nam ad. Quodsi aliquip ex est, ei eros tantas vis. In nominati gloriatur qui, pro te erat liber sententiae. An nec prima eligendi suavitate, nihil veniam ea sit. Mea mucius oblique phaedrum id, eu modo suavitate eum. Eum te vocent corpora invidunt, id doming numquam delenit vix.</p> -->
