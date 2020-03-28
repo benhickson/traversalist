@@ -4,3 +4,4 @@ vendor
 .vscode/
 images/optimized/*
 !images/optimized/.keep
+logs/php-errors.log
