@@ -62,8 +62,9 @@ I like to to use the Issues tab here to keep track of **ideas for new features**
 
 ### Log Files
 
-- PHP's log file path is set in `.htaccess`. Set this file's permissions to `666` to avoid issues in writing to it.
+- PHP's log file path is set in `.htaccess`. Create this file and set its permissions to `666` to avoid issues in writing to it.
 	```sh
+	touch logs/php-errors.log
 	chmod 666 logs/php-errors.log
 	```
 
