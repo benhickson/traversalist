@@ -25,14 +25,11 @@
 		<h2>Which API am I going to use?</h2>
 		<p>When modeling a particular endpoint, it won’t be effective if it doesn’t give you the data you need. Spend a (short) period of time going through the docs, and find one that provides the data that looks good to you. Know that you can always change this later, so don’t agonize over it, but do be thoughtful. Consider both the information and the format, as some APIs have completely separate endpoints for the similar information in different formats.</p>
 		<p>For our project, we will use the <a href="https://developers.google.com/maps/documentation/directions/start" target="_blank">Google Maps Directions API</a>. It’s accessed in an incredibly straightforward way, a GET request with some basic parameters:</p>
-		<code class="sh"><pre>
-https://maps.googleapis.com/maps/api/directions/json
-?key={{your_api_key}}
-&origin={{user_location}}
-&destination={{store_location}}
-		</pre></code>
+		<pre class="command-line" data-prompt="GET"><code class="language-handlebars">
+https://maps.googleapis.com/maps/api/directions/json?key={{your_api_key}}&origin={{user_location}}&destination={{store_location}}
+		</code></pre>
 		<p>An API key is required to make the request, and then it only takes a couple parameters, an origin and a destination. Since this is just a simple GET request, we can check the response by just plugging it into our browser and pressing return.</p>
-		<code class="json"><pre>
+		<pre class="line-numbers"><code class="language-json">
 {
 	"geocoded_waypoints": [...],
 	"routes": [
@@ -73,7 +70,7 @@ https://maps.googleapis.com/maps/api/directions/json
 	],
 	"status": "OK"
 }  
-		</pre></code>
+		</code></pre>
 		<p><i>Note the use of ellipses to indicate sections collapsed, for brevity.</i></p>
 	</li>
 	<li>
@@ -93,77 +90,83 @@ https://maps.googleapis.com/maps/api/directions/json
 
 <p>Let’s implement this in ruby, as a class we can interact with and make “requests” to.</p>
 
-<code class="ruby"><pre>
+<pre class="line-numbers"><code class="language-ruby">
 require 'json'
 
 class MapsAPI
 
 	def get_directions(origin, destination, real_request = false)
-	response = api_endpoint(google_maps_api_key(real_request), origin, destination, real_request)
-	parsed = JSON.parse(response)
-	{
-		'status': parsed['status'],
-		'distance': parsed['routes'][0]['legs'][0]['distance']['value'].to_i,
-		'duration': parsed['routes'][0]['legs'][0]['duration']['value'].to_i
-	}
+		response = api_endpoint(google_maps_api_key(real_request), origin, destination, real_request)
+		parsed = JSON.parse(response)
+		{
+			'status': parsed['status'],
+			'distance': parsed['routes'][0]['legs'][0]['distance']['value'].to_i,
+			'duration': parsed['routes'][0]['legs'][0]['duration']['value'].to_i
+		}
 	end
 	
 	private
 	
 	def google_maps_api_key(real_request = false)
-	if real_request
-		Rails.application.credentials.google_maps[:api_key]
-	else 
-		'FAKEKEY_FJ8302S93LAAZD'
-	end
+		if real_request
+			Rails.application.credentials.google_maps[:api_key]
+		else 
+			'FAKEKEY_FJ8302S93LAAZD'
+		end
 	end
 
 	def api_endpoint(api_key, origin, destination, real_request = false)
+		# If any of the fields are not provided
+		if api_key == '' || origin == '' || destination == ''
+			# return early with a status
+			return JSON.generate({'status': 'BAD REQUEST'})
+		end
 
-	# If any of the fields are not provided
-	if api_key == '' || origin == '' || destination == ''
-		# return early with a status
-		return JSON.generate({'status': 'BAD REQUEST'})
-	end
+		if real_request
+			return RestClient.get("https://maps.googleapis.com/maps/api/directions/json?&origin=#{origin}&destination=#{destination}&key=#{api_key}")
+		end
 
-	if real_request
-		return RestClient.get("https://maps.googleapis.com/maps/api/directions/json?&origin=#{origin}&destination=#{destination}&key=#{api_key}")
-	end
+		# some code that returns what we want
+		distance_value = 17981
+		duration_value = 2404
+		status = 'OK'
 
-	# some code that returns what we want
-	distance_value = 17981
-	duration_value = 2404
-	status = 'OK'
+		# re-create the data structure of the API we're modeling.
+		output_hash = {
+			"geocoded_waypoints": [], 
+			"routes": [
+				{"legs": [
+					{
+						"distance": {"value": distance_value},
+						"duration": {"value": duration_value}
+					}
+				]}
+			],
+			"status": "OK"
+		}
 
-	output_hash = {"geocoded_waypoints": [], "routes": [{"legs": [{
-		"distance": {"value": distance_value},
-		"duration": {"value": duration_value}
-	}]}],
-		"status": "OK"
-	}
-
-	JSON.generate(output_hash)
+		JSON.generate(output_hash)
 	end
 end	
-</pre></code>
+</code></pre>
 
 <p>Planning ahead, we’ve built in some optional parameters called ‘real_request’, so we can very easily switch to using the real API when we’re ready. We always want our interfaces to work consistently, regardless of what “magic” is happening inside.</p>
 
 <p>Now we can make requests to this class and get the data we need.</p>
 
-<code class="ruby"><pre>
+<pre class="command-line" data-prompt="irb 2.6.1 >" data-output="2,3,5"><code class="language-ruby">
 maps = MapsAPI.new
-=> #<MapsAPI:0x00007fd004940fd0>
+=> <#MapsAPI:0x00007fd004940fd0>
 
 maps.get_directions('Crown Heights, Brooklyn, NY','Museum of Modern Art, Manhattan, NYC')
 => {:status=>"OK", :distance=>648723, :duration=>1425}    
-</pre></code>
+</code></pre>
 
 <p>We’ve done it! We now have the ability to develop the rest of our application without incurring unnecessary hits to our real API.</p>
 
 <p>How can we improve this? For one, it would be nice to have our responses be more realistic. Making two different requests should result in different data. The data we return can be random, but still look realistic, so the different pieces of data in the responses should fall into some reasonable constraints, both individually, and relative to each other. Additionally, our API should be deterministic – if you submit the same request, you’d expect to get the same response.</p>
 
-<p><a href="part2">Part 2: Enhancements for a fake API: Realistic Randomness and Determinism</a></p>
+<p><a href="<?= $slug ?>#">Part 2: Enhancements for a fake API: Realistic Randomness and Determinism</a></p>
 
 
 
