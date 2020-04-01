@@ -1,0 +1,56 @@
+<h1>This is an h1</h1>
+<h2>This is an h2</h2>
+<h3>This is an h3</h3>
+<h4>This is an h4</h4>
+<h5>This is an h5</h5>
+<h6>This is an h6</h6>
+<p>This is a p, <i>here are some italics,</i> <b>here is some bold,</b> <a href="/posts/styles">and here is a link</a>.</p>
+<blockquote>I'm a blockquote. It looks like the line is attached to me.</blockquote>
+<?= insertImageBlock('001-photo2.jpg','This is the caption for an image block.') ?>
+<ol>This is text in an ol
+	<li>Here is a list item</li>
+	<li>Here is a list item</li>
+	<li>Here is a list item</li>
+</ol>
+<ul>I am some text in a ul
+	<li>Here is a list item</li>
+	<li>Here is a list item</li>
+	<li>Here is a list item</li>
+</ul>
+<pre class="line-numbers"><code class="language-ruby">
+# I am a codeblock with line numbers and ruby syntax.
+
+require 'json'
+class MapsAPI
+
+	def get_directions(origin, destination, real_request = false)
+		response = api_endpoint(google_maps_api_key(real_request), origin, destination, real_request)
+		parsed = JSON.parse(response)
+		{
+			'status': parsed['status'],
+			'distance': parsed['routes'][0]['legs'][0]['distance']['value'].to_i,
+			'duration': parsed['routes'][0]['legs'][0]['duration']['value'].to_i
+		}
+	end
+	
+	private
+	
+	def google_maps_api_key(real_request = false)
+		if real_request
+			Rails.application.credentials.google_maps[:api_key]
+		else 
+			'FAKEKEY_FJ8302S93LAAZD'
+		end
+	end
+end	
+</code></pre>
+
+<pre class="command-line" data-prompt="irb 2.6.1 >" data-output="2,3,5"><code class="language-ruby">
+# I am a codeblock with a command prompt and ruby syntax highlighting
+
+maps = MapsAPI.new
+=> <#MapsAPI:0x00007fd004940fd0>
+
+maps.get_directions('Crown Heights, Brooklyn, NY','Museum of Modern Art, Manhattan, NYC')
+=> {:status=>"OK", :distance=>648723, :duration=>1425}    
+</code></pre>

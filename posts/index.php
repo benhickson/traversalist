@@ -20,6 +20,9 @@ $slug = $_GET['slug'];
 $post = $posts[$slug];
 $pagetitle = substr($posts[$slug]['title'], 0, 50).'...'.' | '; 		// Gets prepended to 'Traversalist'
 
+// set the base path for the content
+$postcontentpath = '../data/post-content/';
+
 // create a function to create image blocks
 function insertImageBlock($image_filename, $caption = null){
 	$figcaption = '';
