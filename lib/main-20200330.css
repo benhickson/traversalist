@@ -1238,14 +1238,15 @@ a.post-author:hover {
   text-align: center;
 }
 
-.number {
+/* Disabled because interfering with prism */
+/* .number {
   font-family: 'Source Serif Pro', sans-serif;
   color: #fff;
   font-size: 18px;
   line-height: 30px;
   font-weight: 700;
   text-align: center;
-}
+} */
 
 .about-blog {
   display: -webkit-box;

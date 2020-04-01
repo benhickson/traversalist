@@ -1,3 +1,11 @@
+<!-- Prism JS's CSS for syntax highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-okaidia.min.css" integrity="sha256-iNIdqSl2o3Ge4o0EfZkhHY241Bb4iIBttf1jicmtaC4=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha256-Afz2ZJtXw+OuaPX10lZHY7fN1+FuTE/KdCs+j7WZTGc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/command-line/prism-command-line.min.css" integrity="sha256-QViEGvwX/42OrD49huSb2mGZtUQwVKNA5Ux58tMWLOs=" crossorigin="anonymous" />
+
+<!-- My CSS just for the post pages -->
+<link rel="stylesheet" href="lib/post-20200401.css">
+
 <div class="title-section">
 	<div class="container cc-center">
 		<div class="text-container">
@@ -62,3 +70,17 @@
 		</div>
 	</div>
 </div>
+
+<!-- Prism JS for syntax highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js" integrity="sha256-YZQM6/hLBZYkb01VYf17isoQM4qpaOP+aX96hhYrWhg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" integrity="sha256-abVQckxqXkWO8NiZk8TBPHzv3/LObzIqzzQWz0kV0F0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-hep5s8952MqR7Y79JYfCXZD6vQjVHs7sOu/ZGrs1OEQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/command-line/prism-command-line.min.js" integrity="sha256-pySw63TmypHJ7LQU3ycJreLDfrxg59cI+famzPcGH5Q=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/unescaped-markup/prism-unescaped-markup.min.js" integrity="sha256-jdfsBdvnyz7NNP+Eof/wo1vUJkxVYU5QEkiPUV+rKGo=" crossorigin="anonymous"></script>
+
+<!-- Languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/components/prism-ruby.min.js" integrity="sha256-pZtB25kcFuPE+7DKv35tyiuU5XN3APIsf+3RcZXoZW4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/components/prism-json.min.js" integrity="sha256-pVgHctGgZmOFYStQ6BylpFTgUenv8Pn+bDg5ENFw8fg=" crossorigin="anonymous"></script>
+
+<!-- Autoloader doesn't work with command-line, as of version 1.19.0 -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-WIuEtgHNTdrDT2obGtHYz/emxxAj04sJBdMhRjDXd8I=" crossorigin="anonymous"></script> -->

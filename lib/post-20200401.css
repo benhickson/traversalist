@@ -1,0 +1,36 @@
+.w-richtext ol{
+	/* Reset for the some hiding of codeblocks when within ol's */
+	overflow: initial;
+}
+ol pre[class*=language-]{
+	/* Reset for some weird font oddity when inside an <ol> */
+	font-size: 14px;
+	
+	/* Reset position for codeblocks inside lists */
+	transform: translate(-25px, 0px);
+}
+pre[class*=language-]{
+	/* full-width code blocks */
+	position: relative;
+	width: 100vw;
+    max-width: 1200px;
+    left: 50%;
+	margin-left: calc(-50vw + ((100vw - 1200px)/2));
+	
+	/* Make the code blocks a pure grey, rather than tinted green with okaidia */
+	background-color: #222;
+	
+	/* rounded borders by default with prismjs, uncomment this to square them */
+    /* border-radius: 0; */
+	
+	/* spacing around the codeblocks */
+    margin-top: 40px;
+	margin-bottom: 40px;
+}
+@media (max-width: 1250px){
+	pre[class*=language-]{
+		/* centering code blocks (with spacing) on smaller viewports */
+		margin-left: -48vw;
+		width: 96vw;
+	}
+}
