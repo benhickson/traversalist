@@ -29,7 +29,7 @@
 <div class="post-content">
 	<div class="post-content-wrapper">
 		<div class="rich-text w-richtext">
-			<?php require '../data/post-content/'.$post['content_html']; ?>
+			<?php require $postcontentpath.$post['content_html']; ?>
 		</div>
 	</div>
 </div>
