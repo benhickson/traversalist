@@ -2,6 +2,11 @@
     .author-link:hover .team-member-name{
         text-decoration: underline;
     }
+    .team{
+        /* fix for spacing */
+        /* it looked a little weird without the "about" copy section */
+        padding: 60px 30px 120px 30px;
+    }
 </style>
 <div class="header" style='background-image: url("<?php echo getenv('BASE_URL'); ?>images/about-DSC01004.jpg&height=1792&quality=70&format=jpeg');"></div>
 <!-- Disabled until we write this "about" copy. -->
