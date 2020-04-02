@@ -1,0 +1,133 @@
+<div class="top-post">
+	<div class="container">
+		<div class="posts-wrapper cc-top-post">
+			<div class="w-dyn-list">
+				<div class="w-dyn-items">
+					<div class="top-post-item w-dyn-item">
+						<a href="<?= $top_post_slug ?>" class="top-post-image w-inline-block">
+							<img src="images/<?= $top_post['image'] ?>&height=950&quality=80&format=jpeg" alt="" 
+							xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, 56vw"
+							xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w" 
+							class="post-image">
+						</a>
+						<div class="top-post-text">
+							<a href="category/<?= $categories[$top_post['category']]['slug'] ?>" class="category-link"><?= $categories[$top_post['category']]['name'] ?></a>
+							<a href="<?= $top_post_slug ?>" class="top-post-link-block w-inline-block">
+								<h2 class="h2"><?= $top_post['title'] ?></h2>
+							</a>
+							<div class="post-short-text"><?= $top_post['description'] ?></div>
+							<div class="post-author-text">
+								<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$top_post['author']]['slug'] ?>" class="post-author"><?= $authors[$top_post['author']]['name'] ?></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="_3-posts">
+	<div class="container">
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php
+						foreach (addl_top_posts() as $slug => $post) {
+							?>
+								<div class="_3-collection-item w-dyn-item w-col w-col-4">
+									<a href="<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="images/<?= $post['image'] ?>&height=510&quality=80&format=jpeg" alt="" 
+										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" 
+										class="image">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="<?= $slug ?>" class="post-title w-inline-block">
+											<h3 class="h3"><?= $post['title'] ?></h3>
+										</a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a></div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="separator">
+	<div class="separator-container">
+		<div class="line-color"></div>
+	</div>
+</div>
+<div class="latest-posts">
+	<div class="container">
+		<div class="section-title-text">Latest Posts</div>
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php 
+						foreach (latest_posts(8) as $slug => $post) {
+							?>
+								<div class="_4-collection-item w-dyn-item w-col w-col-3">
+									<a href="<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="images/<?= $post['image'] ?>&height=792&quality=80&format=jpeg" alt="" 
+										xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 22vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3cc4f44bb295_image-15.jpg 1700w"
+										class="image-2">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+										</div>
+									</div>
+								</div>							
+							<?php						
+						}
+					?>
+				</div>
+			</div><a href="latest" class="button w-button">for those who sort by new</a></div>
+	</div>
+</div>
+<div class="separator">
+	<div class="separator-container">
+		<div class="line-color"></div>
+	</div>
+</div>
+<div class="featured-posts">
+	<div class="container">
+		<div class="section-title-text">Featured Posts</div>
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php
+						foreach (featured_posts() as $slug => $post) {
+							?>
+								<div class="_2-collection-item w-dyn-item w-col w-col-6">
+									<a href="<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="images/<?= $post['image'] ?>&height=792&quality=80&format=jpeg" alt="" 
+										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
+										class="image-3">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+										</div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

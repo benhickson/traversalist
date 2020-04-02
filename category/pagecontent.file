@@ -1,0 +1,36 @@
+<div class="title-section cc-detail">
+	<div class="container">
+		<div class="div-block">
+			<h2 class="h2 cc-title-section cc-push-text">Posts about <?= $category['name'] ?></h2>
+		</div>
+		<br />
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php foreach ($posts as $slug => $post) { ?>
+
+						<div class="_3-collection-item w-dyn-item w-col w-col-4">
+							<a href="<?= $slug ?>" class="posts-image w-inline-block">
+								<img src="images/<?= $post['image'] ?>&height=510&quality=80&format=jpeg" alt="" 
+								xsizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, 30vw" 
+								xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c4f844bb293_image-14.jpg 1700w" 
+								class="image">
+							</a>
+							<div class="post-info-text">
+								<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+								<a href="<?= $slug ?>" class="post-title w-inline-block">
+									<h3 class="h3"><?= $post['title'] ?></h3>
+								</a>
+								<div class="post-author-text cc-small-thumbnail">
+									<div class="post-author cc-top-margin">By</div>
+									<a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+								</div>
+							</div>
+						</div>						
+
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

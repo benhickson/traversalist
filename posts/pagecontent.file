@@ -1,0 +1,86 @@
+<!-- Prism JS's CSS for syntax highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-okaidia.min.css" integrity="sha256-iNIdqSl2o3Ge4o0EfZkhHY241Bb4iIBttf1jicmtaC4=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha256-Afz2ZJtXw+OuaPX10lZHY7fN1+FuTE/KdCs+j7WZTGc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/command-line/prism-command-line.min.css" integrity="sha256-QViEGvwX/42OrD49huSb2mGZtUQwVKNA5Ux58tMWLOs=" crossorigin="anonymous" />
+
+<!-- My CSS just for the post pages -->
+<link rel="stylesheet" href="lib/post-20200402.css">
+
+<div class="title-section">
+	<div class="container cc-center">
+		<div class="text-container">
+			<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="section-title-text w-inline-block">
+				<div class="post-category-text"><?= $categories[$post['category']]['name'] ?></div>
+			</a>
+			<h1 class="h1"><?= $post['title'] ?></h1>
+			<div class="post-author-text cc-center">
+				<div style="background-image:url(&quot;images/<?= $authors[$post['author']]['image'] ?>&height=60&quality=60&format=jpeg&quot;)" class="author-image-wrapper"></div>
+					<a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+				</div>
+		</div>
+	</div>
+</div>
+<div class="post-image">
+	<div class="container cc-post-image"><img src="images/<?= $post['image'] ?>&height=1840&quality=80&format=jpeg" alt="" 
+		xsizes="100vw" 
+		xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2000.jpeg 2000w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image-p-2600.jpeg 2600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c5b724bb2a1_article-image.jpg 3000w" 
+		class="image-4"></div>
+</div>
+<div class="post-content">
+	<div class="post-content-wrapper">
+		<div class="rich-text w-richtext">
+			<?php require $postcontentpath.$post['content_html']; ?>
+		</div>
+	</div>
+</div>
+<div class="separator">
+	<div class="separator-container">
+		<div class="line-color"></div>
+	</div>
+</div>
+<div class="featured-posts">
+	<div class="container">
+		<div class="section-title-text">Featured Posts</div>
+		<div class="posts-wrapper">
+			<div class="posts-collection-list-wrapper w-dyn-list">
+				<div class="posts-collection-list w-dyn-items w-row">
+					<?php
+						foreach (featured_posts() as $slug => $post) {
+							?>
+								<div class="_2-collection-item w-dyn-item w-col w-col-6">
+									<a href="<?= $slug ?>" class="posts-image w-inline-block">
+										<img src="./images/<?= $post['image'] ?>&height=780&quality=70&format=jpeg" alt="" 
+										xsizes="(max-width: 479px) 97vw, (max-width: 767px) 92vw, 46vw" 
+										xsrcset="https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-800.jpeg 800w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1080.jpeg 1080w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large-p-1600.jpeg 1600w, https://uploads-ssl.webflow.com/5e62813d87cd3c8eb74bb22b/5e62813d87cd3c26cc4bb273_image_large.jpg 1700w" 
+										class="image-3">
+									</a>
+									<div class="post-info-text">
+										<a href="category/<?= $categories[$post['category']]['slug'] ?>" class="category-link"><?= $categories[$post['category']]['name'] ?></a>
+										<a href="<?= $slug ?>" class="post-title w-inline-block"><h3 class="h3"><?= $post['title'] ?></h3></a>
+										<div class="post-author-text cc-small-thumbnail">
+											<div class="post-author cc-top-margin">By</div><a href="author/<?= $authors[$post['author']]['slug'] ?>" class="post-author"><?= $authors[$post['author']]['name'] ?></a>
+										</div>
+									</div>
+								</div>
+							<?php
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Prism JS for syntax highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js" integrity="sha256-YZQM6/hLBZYkb01VYf17isoQM4qpaOP+aX96hhYrWhg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" integrity="sha256-abVQckxqXkWO8NiZk8TBPHzv3/LObzIqzzQWz0kV0F0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-hep5s8952MqR7Y79JYfCXZD6vQjVHs7sOu/ZGrs1OEQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/command-line/prism-command-line.min.js" integrity="sha256-pySw63TmypHJ7LQU3ycJreLDfrxg59cI+famzPcGH5Q=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/unescaped-markup/prism-unescaped-markup.min.js" integrity="sha256-jdfsBdvnyz7NNP+Eof/wo1vUJkxVYU5QEkiPUV+rKGo=" crossorigin="anonymous"></script>
+
+<!-- Languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/components/prism-ruby.min.js" integrity="sha256-pZtB25kcFuPE+7DKv35tyiuU5XN3APIsf+3RcZXoZW4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/components/prism-json.min.js" integrity="sha256-pVgHctGgZmOFYStQ6BylpFTgUenv8Pn+bDg5ENFw8fg=" crossorigin="anonymous"></script>
+
+<!-- Autoloader doesn't work with command-line, as of version 1.19.0 -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-WIuEtgHNTdrDT2obGtHYz/emxxAj04sJBdMhRjDXd8I=" crossorigin="anonymous"></script> -->
