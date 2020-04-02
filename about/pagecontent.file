@@ -61,7 +61,7 @@
     <div class="container">
         <div class="text-container">
             <div class="section-title-big">Wanna get in touch?</div>
-            <p class="paragraph cc-contact-text">Vim et dolore eligendi voluptua, qui id unum quas omittantur, at sed justo tation eligendi. Assum accommodare an mei. Sonet propriae partiendo ad vix, ex vis epicuri constituto incorrupte.</p>
+            <!-- <p class="paragraph cc-contact-text">Vim et dolore eligendi voluptua, qui id unum quas omittantur, at sed justo tation eligendi. Assum accommodare an mei. Sonet propriae partiendo ad vix, ex vis epicuri constituto incorrupte.</p> -->
         </div>
         <div class="contact-wrapper">
             <div class="contact-item-wrapper">
@@ -78,7 +78,7 @@
                     <div class="contact-number">
                         <div class="number">2</div>
                     </div>
-                    <div class="contact-info-subtitle">general INQUIRIES</div>
+                    <div class="contact-info-subtitle">General Inquiries</div>
                     <div class="contact-info-text">hello@traversal.ist</div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <div class="contact-number">
                         <div class="number">3</div>
                     </div>
-                    <div class="contact-info-subtitle">PRESS inquiries</div>
+                    <div class="contact-info-subtitle">Press Inquiries</div>
                     <div class="contact-info-text">press@traversal.ist</div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                     <div class="contact-number">
                         <div class="number">4</div>
                     </div>
-                    <div class="contact-info-subtitle">potential contributors</div>
+                    <div class="contact-info-subtitle">Contributors</div>
                     <div class="contact-info-text">collab@traversal.ist</div>
                 </div>
             </div>
