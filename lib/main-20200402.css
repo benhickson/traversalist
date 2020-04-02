@@ -856,6 +856,10 @@ a.post-author:hover {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+  /* Fixes for weird 1-item alignment issues */
+  /* Can possibly remove when we have more content */
+  width: 100%;
+  display: inline-block;  
 }
 
 .posts-image {

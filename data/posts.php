@@ -95,8 +95,16 @@ function addl_top_posts(){
 	global $posts;
 	// best if there are either 3 or 6 posts here.
 	$addl_top_posts = array_intersect_key($posts, array_flip(
-		['how-to-fake-an-api','micro-apartments-wont-solve-the-housing-crisis']
+		['how-to-fake-an-api']
 	));
+
+	// include placeholder content in add_top_posts
+	if (getenv('ENABLE_PLACEHOLDERS') == 'true') {
+		$addl_top_posts = array_intersect_key($posts, array_flip(
+			['how-to-fake-an-api', 'bowlcut-launch', 'suzanne']
+		));
+	}
+
 	return $addl_top_posts;
 }
 
