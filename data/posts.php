@@ -5,7 +5,7 @@ $posts = array(
 	'micro-apartments-wont-solve-the-housing-crisis' => array('title'=>'Micro-sized apartments are not NYC\'s solution to the housing crisis',
 				'author'=>'kyle','date'=>'2020-03-30','category'=>'cp',
 				'image'=>'001-photo1.png','content_html'=>'001-kyle-micro-apartments.html',
-				'description'=>'A dissertation on living space.'
+				'description'=>'Compressing ones life into a tiny space can stifle the soul.'
 	),
 	'how-to-fake-an-api' => array('title'=>'How to fake an API when developing your app.',
 				'author'=>'ben','date'=>'2020-03-27','category'=>'pr',
@@ -87,7 +87,7 @@ function latest_posts($limit){
 }
 
 // top post, for the homepage banner
-$top_post_slug = 'saatchi-fontsmith-collaboration-house-of-st-barnabas';
+$top_post_slug = 'micro-apartments-wont-solve-the-housing-crisis';
 $top_post = $posts[$top_post_slug];
 
 // returns additional top posts for homepage
@@ -95,7 +95,7 @@ function addl_top_posts(){
 	global $posts;
 	// best if there are either 3 or 6 posts here.
 	$addl_top_posts = array_intersect_key($posts, array_flip(
-		['thousands','bowlcut-launch','japan']
+		['how-to-fake-an-api','micro-apartments-wont-solve-the-housing-crisis']
 	));
 	return $addl_top_posts;
 }
@@ -105,7 +105,7 @@ function featured_posts(){
 	global $posts;
 	// 2 or 4 items
 	$featured_posts = array_intersect_key($posts, array_flip(
-		['suzanne','london']
+		['how-to-fake-an-api','micro-apartments-wont-solve-the-housing-crisis']
 	));
 	return $featured_posts;
 }
