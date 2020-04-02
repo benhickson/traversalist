@@ -3,7 +3,7 @@
         text-decoration: underline;
     }
 </style>
-<div class="header" style='background-image: url("<?php echo getenv('BASE_URL'); ?>images/about-DSC01004.jpg&height=1792&quality=80&format=jpeg');"></div>
+<div class="header" style='background-image: url("<?php echo getenv('BASE_URL'); ?>images/about-DSC01004.jpg&height=1792&quality=70&format=jpeg');"></div>
 <!-- Disabled until we write this "about" copy. -->
 <!-- <div class="about-blog">
     <div class="container cc-center">
