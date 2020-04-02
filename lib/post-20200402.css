@@ -3,11 +3,18 @@
 	overflow: initial;
 }
 ol pre[class*=language-]{
-	/* Reset for some weird font oddity when inside an <ol> */
-	font-size: 14px;
-	
 	/* Reset position for codeblocks inside lists */
 	transform: translate(-25px, 0px);
+}
+ol pre[class*=language-], ol code[class*=language-]{
+	/* Reset for some weird font oddity when inside an <ol> */
+	font-size: 14px;
+}
+:not(pre)>code[class*=language-]{
+	/* Don't allow inline code to be wrapped */
+	white-space: nowrap;
+	/* A bit more padding for inline code */
+	padding: 2px 6px;
 }
 pre[class*=language-]{
 	/* full-width code blocks */

@@ -9,7 +9,7 @@ $posts = array(
 	),
 	'how-to-fake-an-api' => array('title'=>'How to fake an API when developing your app.',
 				'author'=>'ben','date'=>'2020-03-27','category'=>'pr',
-				'image'=>'001-photo1.png','content_html'=>'002-ben-fake-api.html',
+				'image'=>'002-audiocables-1-s68Joio4jww-unsplash.jpg','content_html'=>'002-ben-fake-api.html',
 				'description'=>'A dissertation on living space.'
 	)
 );

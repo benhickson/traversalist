@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/command-line/prism-command-line.min.css" integrity="sha256-QViEGvwX/42OrD49huSb2mGZtUQwVKNA5Ux58tMWLOs=" crossorigin="anonymous" />
 
 <!-- My CSS just for the post pages -->
-<link rel="stylesheet" href="lib/post-20200401.css">
+<link rel="stylesheet" href="lib/post-20200402.css">
 
 <div class="title-section">
 	<div class="container cc-center">
