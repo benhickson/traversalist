@@ -1,8 +1,8 @@
 <?php
 
 $authors = array(
-	'kyle' => array('name'=>'Kyle Nutter', 'slug'=>'kyle-nutter','role'=>'Author','image'=>'kyle.jpg','bio'=>'Jared\'s bio, website link.'),
-	'ben' => array('name'=>'Ben Hickson', 'slug'=>'ben-hickson','role'=>'Author','image'=>'author-ben-1.jpg','bio' => 'Ben Hickson is a programmer and filmmaker based in Brooklyn, NY.<br><br>He is a student at Flatiron School and makes films with <a href="villahouse.tv" target="_blank">Villa House Pictures</a>. You can see his portfolio at <a href="benhickson.com" target="_blank">benhickson.com</a>')
+	'ben' => array('name'=>'Ben Hickson', 'slug'=>'ben-hickson','role'=>'Author','image'=>'author-ben-1.jpg','bio' => 'Ben Hickson is a programmer and filmmaker based in Brooklyn, NY.<br><br>He is a student at Flatiron School and makes films with <a href="villahouse.tv" target="_blank">Villa House Pictures</a>. You can see his portfolio at <a href="benhickson.com" target="_blank">benhickson.com</a>'),
+	'kyle' => array('name'=>'Kyle Nutter', 'slug'=>'kyle-nutter','role'=>'Author','image'=>'kyle.jpg','bio'=>'Jared\'s bio, website link.')
 );
 
 $placeholder_authors = array(
