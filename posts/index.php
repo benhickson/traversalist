@@ -18,7 +18,11 @@ if (isset($_GET['slug']) && array_key_exists($_GET['slug'], $posts)) {
 // set the slug variable, grab the post itself, and set the page title for the <head>
 $slug = $_GET['slug'];
 $post = $posts[$slug];
-$pagetitle = substr($posts[$slug]['title'], 0, 50).'...'.' | '; 		// Gets prepended to 'Traversalist'
+if (strlen($posts[$slug]['title']) > 53){
+	$pagetitle = substr($posts[$slug]['title'], 0, 50).'...'.' | '; 		// Gets prepended to 'Traversalist'
+} else {
+	$pagetitle = $posts[$slug]['title'].' | ';
+}
 
 // set the base path for the content
 $postcontentpath = '../data/post-content/';
