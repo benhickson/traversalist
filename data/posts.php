@@ -5,17 +5,15 @@ $posts = array(
 	'how-to-fake-an-api' => array('title'=>'How to fake an API when developing your app',
 		'author'=>'ben','date'=>'2020-04-03','category'=>'pr',
 		'image'=>'002-audiocables-1-s68Joio4jww-unsplash.jpg','content_html'=>'002-ben-fake-api.html',
-		'description'=>'How to approching modeling and simulating your APIs, and how it can help your project'
-	)
+		'description'=>'How to approching modeling and simulating your APIs, and how it can help your project'),
+	'micro-apartments-wont-fix-the-housing-crisis' => array('title'=>'A Tiny Solution Won\'t Fix NYC\'s Big Problem',
+		'author'=>'kyle','date'=>'2020-04-05','category'=>'cp',
+		'image'=>'001-potterystudio.png','content_html'=>'001-kyle-micro-apartments.html',
+		'description'=>'Compressing ones life into a tiny space can stifle the soul.')
 );
 
 // placeholder content
 $placeholder_posts = array(
-	'micro-apartments-wont-fix-the-housing-crisis' => array('title'=>'A Tiny Solution Won\'t Fix NYC\'s Big Problem',
-				'author'=>'kyle','date'=>'2020-04-05','category'=>'cp',
-				'image'=>'001-potterystudio.png','content_html'=>'001-kyle-micro-apartments.html',
-				'description'=>'Compressing ones life into a tiny space can stifle the soul.'
-	),
 	'helmut' => array('title'=>'Helmut Lang celebrates taxi drivers worldwide in latest campaign',
 						'author'=>'ben','date'=>'2020-03-07','category'=>'photo',
 						'image'=>'5e62813d87cd3cc4f44bb295_image-15.jpg','content_html'=>'001-japan-lorem.html',
