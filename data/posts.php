@@ -85,7 +85,7 @@ function latest_posts($limit){
 }
 
 // top post, for the homepage banner
-$top_post_slug = 'how-to-fake-an-api';
+$top_post_slug = 'micro-apartments-wont-fix-the-housing-crisis';
 $top_post = $posts[$top_post_slug];
 
 // returns additional top posts for homepage
@@ -93,7 +93,7 @@ function addl_top_posts(){
 	global $posts;
 	// best if there are either 3 or 6 posts here.
 	$addl_top_posts = array_intersect_key($posts, array_flip(
-		[]
+		['how-to-fake-an-api']
 	));
 
 	// include placeholder content in add_top_posts
