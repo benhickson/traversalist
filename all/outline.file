@@ -13,7 +13,7 @@
 	<title><?php echo $pagetitle; ?>Traversalist</title>
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<base href="<?php echo getenv('BASE_URL'); ?>">
-	<link href="lib/main-20200402.css" rel="stylesheet" type="text/css">
+	<link href="lib/main-20200404.css" rel="stylesheet" type="text/css">
 	<link href="lib/main-fonts-20200330.css" rel="stylesheet" media="all">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="lib/menu-20200330.js" type="text/javascript"></script>
