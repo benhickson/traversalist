@@ -111,7 +111,7 @@ function featured_posts(){
 	global $posts;
 	// 2 or 4 items
 	$featured_posts = array_intersect_key($posts, array_flip(
-		['bowlcut-launch', 'suzanne']
+		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
 	));
 	return $featured_posts;
 }
