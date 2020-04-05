@@ -1303,9 +1303,12 @@ a.post-author:hover {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.top-post-item .post-image{
   max-height: 480px;
-  object-fit: cover;
-  height: 37.8vw;  
+    object-fit: cover;
+    height: 37.8vw;
 }
 
 .post-content {
