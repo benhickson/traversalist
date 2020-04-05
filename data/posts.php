@@ -11,7 +11,7 @@ $posts = array(
 
 // placeholder content
 $placeholder_posts = array(
-	'micro-apartments-wont-solve-the-housing-crisis' => array('title'=>'A Tiny Solution Won\'t Fix NYC\'s Big Problem',
+	'micro-apartments-wont-fix-the-housing-crisis' => array('title'=>'A Tiny Solution Won\'t Fix NYC\'s Big Problem',
 				'author'=>'kyle','date'=>'2020-04-05','category'=>'cp',
 				'image'=>'001-potterystudio.png','content_html'=>'001-kyle-micro-apartments.html',
 				'description'=>'Compressing ones life into a tiny space can stifle the soul.'
