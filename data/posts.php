@@ -109,9 +109,13 @@ function addl_top_posts(){
 // bottom of pages, "featured", read more
 function featured_posts(){
 	global $posts;
+
+	$random_post_keys = array_rand($posts, 2);
+	
 	// 2 or 4 items
 	$featured_posts = array_intersect_key($posts, array_flip(
-		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
+		// ['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
+		$random_post_keys
 	));
 	return $featured_posts;
 }
