@@ -6,10 +6,14 @@ $posts = array(
 		'author'=>'ben','date'=>'2020-04-03','category'=>'pr',
 		'image'=>'002-audiocables-1-s68Joio4jww-unsplash.jpg','content_html'=>'002-ben-fake-api.html',
 		'description'=>'How to approching modeling and simulating your APIs, and how it can help your project'),
-	'micro-apartments-wont-fix-the-housing-crisis' => array('title'=>'A Tiny Solution Won\'t Fix NYC\'s Big Problem',
+	'micro-apartments-wont-fix-the-housing-crisis' => array('title'=>'A tiny solution won\'t fix NYC\'s big problem',
 		'author'=>'kyle','date'=>'2020-04-05','category'=>'cp',
 		'image'=>'001-potterystudio.png','content_html'=>'001-kyle-micro-apartments.html',
-		'description'=>'Compressing ones life into a tiny space can stifle the soul.')
+		'description'=>'Compressing ones life into a tiny space can stifle the soul.'),
+	'how-to-authenticate-anonymous-users-in-rails' => array('title'=>'How to authenticate anonymous users in Rails',
+		'author'=>'ben','date'=>'2020-04-14','category'=>'pr',
+		'image'=>'003-codingoutside-Yhc7YGZlz3g-unsplash.jpg','content_html'=>'003-auth-anon-users-rails.html',
+		'description'=>'Grow your app by allowing your audience to fully use your service, while never needing to create an account.')
 );
 
 // placeholder content
@@ -85,7 +89,7 @@ function latest_posts($limit){
 }
 
 // top post, for the homepage banner
-$top_post_slug = 'micro-apartments-wont-fix-the-housing-crisis';
+$top_post_slug = 'how-to-authenticate-anonymous-users-in-rails';
 $top_post = $posts[$top_post_slug];
 
 // returns additional top posts for homepage
@@ -93,7 +97,7 @@ function addl_top_posts(){
 	global $posts;
 	// best if there are either 3 or 6 posts here.
 	$addl_top_posts = array_intersect_key($posts, array_flip(
-		['how-to-fake-an-api']
+		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
 	));
 
 	// include placeholder content in add_top_posts
@@ -109,9 +113,13 @@ function addl_top_posts(){
 // bottom of pages, "featured", read more
 function featured_posts(){
 	global $posts;
+
+	$random_post_keys = array_rand($posts, 2);
+	
 	// 2 or 4 items
 	$featured_posts = array_intersect_key($posts, array_flip(
-		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
+		// ['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
+		$random_post_keys
 	));
 	return $featured_posts;
 }
