@@ -1,0 +1,150 @@
+<p>Let’s say you’re building an app that is oriented around user identity - the ability for users to interact with the site and with each other <i>as themselves</i>. The typical approach (e.g. the one Facebook uses), is to ask the user to create an account before logging in and being able to do anything meaningful.</p>
+<p>Requiring users to enter their email address and risk another data breach on a site they haven’t even tried yet, has the potential to severely impact your conversion rate. How can we have the “best of both worlds” where a user can engage with a service meaningfully, without needing to be logged in?</p>
+
+<blockquote>How can we solve this problem?</blockquote>
+<p>The solution we’ll use today for this problem will be the implementation of an “Anonymous User” class in a Ruby on Rails app.</p>
+<p>Here is the user flow we’ll go for:</p>
+<ol>
+	<li>User visits site.</li>
+	<li>If the user has a valid cookie or token from their last session, authenticate with it.</li>
+	<li>If not, create a new User, create a new AnonymousUser, and associate the two instances together.</li>
+	<li>Issue the user a cookie or token for the User.</li>
+	<li>All users of the site, whether logged in or anonymous, now are associated with a User instance, and can perform actions as such.</li>
+	<li>When browsing the site, if the User’s `name` is blank, check if there is an AnonymousUser associated, and change the views appropriately.</li>
+	<li>When an anonymous user wants to create a new account, simply fill in the necessary details into the User instance, and destroy the AnonymousUser instance. All interactions around the site are still linked to the same user.
+		<br /><br />
+		<b>Stretch Goal:</b></li>
+	<li>When an anonymous user wants to login to an existing account, re-associate any site interactions in your database with the existing user, then destroy the temporary anonymous User instance (and it’s associated AnonymousUser instance), effectively “merging” the user’s history together.</li>
+</ol>
+<br />
+<p>Sound like a plan?</p>
+
+<blockquote>Let's do it.</blockquote>
+<p>Let’s start with some migrations for our two models - <code class="language-ruby">User</code> and <code class="language-ruby">AnonymousUser</code>:</p>
+
+<pre class="line-numbers"><code class="language-ruby">
+class CreateUsers < ActiveRecord::Migration[6.0]
+	def change
+		create_table :users do |t|
+			t.string :email
+			t.string :display_name
+			t.string :password_digest
+		
+			t.timestamps
+		end
+	end
+end
+</code></pre>
+<pre class="line-numbers"><code class="language-ruby">
+class CreateAnonymousUsers < ActiveRecord::Migration[6.0]
+	def change
+		create_table :anonymous_users do |t|
+			t.string :display_name
+			t.belongs_to :user, null: false, foreign_key: true
+	   
+			t.timestamps
+		end
+	end
+end   
+</code></pre>
+
+<p>It’s important to create and run the User migration first, so that we can properly add our foreign key to the AnonymousUser table. SQLite doesn’t mind which order we use, but production databases like MySQL and PostgreSQL leverage this sort of metadata to facilitate fast performance and high-concurrency, and as such, they require things be done in a certain way.</p>
+<p>Next, we’ll create our Users controller, to facilitate the actions of the user flow:</p>
+
+<pre class="line-numbers"><code class="language-ruby">
+class UsersController < ApplicationController
+
+	skip_before_action :authenticate_request, only: [:anon]
+
+	# create/register a user
+	def create
+		# transition anonymous account to full account
+		updateStatus = @current_user.update(email: params[:email], display_name: params[:display_name], password: params[:password])
+		if updateStatus
+			# delete the associated anonymous user
+			@current_user.anonymous_user.destroy
+			render json: {status: 'User created successfully'}, status: :created
+		else
+			render json: {errors: @current_user.errors.full_messages}, status: :conflict
+		end
+	end
+
+	# login a user
+	def login
+		if @current_user.anonymous_user
+			# TODO: Stretch Goal: associate anonymous User’s actions around the site 
+			# 	with the already-existing user they’re logging in as. This will involve 
+			# 	any records in the database for the anonymous user to the already-existing
+			#	user's ID, and recording some kind of record of this for any external
+			#	services that involve user_id’s and can’t be updated.
+		end
+ 
+		# get a user by the email supplied
+		user = User.find_by(email: params[:email].to_s.downcase)
+		# check that the user exists and the password is correct
+		if user && user.authenticate(params[:password])
+			render json: {auth_token: JsonWebToken.encode({user_id: user.id})}, status: :ok
+		else
+			render json: {error: 'Invalid email or password'}, status: :unauthorized
+		end
+	end
+
+	# create and login an anonymous user
+	def anon
+		new_anon_user = User.create
+		AnonymousUser.create(display_name: AnonymousUser.random_name, user: new_anon_user)
+		render json: {auth_token: JsonWebToken.encode({user_id: new_anon_user.id})}, status: :ok
+	end
+
+	def current
+		user = @current_user
+		render json: {
+			email: user.email,
+			display_name: user.display_name,
+			anon_display_name: user.anon_display_name
+		}, status: :ok
+	end
+ 
+end
+</code></pre>
+
+<p>The create method is RESTful, and integrates the transition from anonymous to real user. The other three methods (controller actions) we’ve created here are <code class="language-ruby">login</code>, <code class="language-ruby">anon</code>, and <code class="language-ruby">current</code>.</p>
+<p><code class="language-ruby">anon</code> handles “logging-in” anonymous users, returning a JWT (JSON Web Token) to them that we are using for authentication to our backend.</p>
+<p><code class="language-ruby">login</code> handles real login requests, and transitions the user from an anonymous (or another) account, to their already-existing account.</p>
+<br />
+
+<p>To allow users to hit our custom controller actions, we’ll need some custom routes:</p>
+<pre class="line-numbers"><code class="language-ruby">
+Rails.application.routes.draw do
+
+	get 'users/anon', to: 'users#anon'
+	get 'users/current', to: 'users#current'
+	post 'users/login', to: 'users#login'
+	resources :users, only: [:create]
+
+end   
+</code></pre>
+
+<p>Our 3rd non-RESTful action on our Users controller, <code class="language-ruby">current</code>, responds with information that our frontend needs about the current user - their email, display name, and an `anon_display_name`. Serving the different display names as two separate fields allows the frontend to understand which type of user this is, as one of the two values will always be <code class="language-ruby">null</code> in the JSON of our response.</p>
+
+<p>That method <code class="language-ruby">user.anon_display_name</code> in our <code class="language-ruby">current</code> method? Just a simple <code class="language-ruby">if</code> block we added to our <code class="language-ruby">User</code> model:</p>
+
+<pre class="line-numbers"><code class="language-ruby">
+class User < ApplicationRecord
+
+	def anon_display_name
+		if self.anonymous_user
+			self.anonymous_user.display_name
+		else
+			nil
+		end
+	end
+
+end
+</code></pre>
+
+<p>With this setup, we can now build our app around a paradigm where all users are identified, by default, with zero effort required on the user’s part! Conversions await!</p>
+<br />
+<blockquote>What's next?</blockquote>
+<p>Another thing you may have noticed in our Users controller is the use of an instance variable <code class="language-ruby">@current_user</code>. That variable is created by our a <code class="language-ruby">before_action :authenticate_request</code> that runs in our Application controller.</p>
+<p>We’ll explore that setup further in a later article - <a href="<?= $slug ?>#part2">How to Handle Authentication between Rails and Angular using JWT</a></p>
