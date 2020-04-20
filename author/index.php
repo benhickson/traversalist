@@ -32,4 +32,4 @@ $posts = posts_by($author['key']);
 $pagetitle = $author['name'].' | ';
 
 // build the page
-require '../all/outline.file';
+require '../all/layout.file';

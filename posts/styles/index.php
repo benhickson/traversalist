@@ -36,4 +36,4 @@ function insertImageBlock($image_filename, $caption = null){
 }
 
 // build the page
-require '../../all/outline.file';
+require '../../all/layout.file';

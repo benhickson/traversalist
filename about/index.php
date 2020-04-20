@@ -12,4 +12,4 @@ $pagetitle = 'About | '; 		// None. the homepage simply reads "Traversalist"
 
 
 // build the page
-require '../all/outline.file';
+require '../all/layout.file';

@@ -14,4 +14,4 @@ $pagetitle = 'Latest Posts | ';
 $posts = latest_posts(15);
 
 // build the page
-require '../all/outline.file';
+require '../all/layout.file';

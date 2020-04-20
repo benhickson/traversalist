@@ -32,4 +32,4 @@ $posts = posts_in($category['key']);
 $pagetitle = $category['name'].' | ';
 
 // build the page
-require '../all/outline.file';
+require '../all/layout.file';
