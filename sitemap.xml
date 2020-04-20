@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://traversal.ist/</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/how-to-authenticate-anonymous-users-in-rails</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/category/programming</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/author/ben-hickson</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/about/#team</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/how-to-fake-an-api</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/micro-apartments-wont-fix-the-housing-crisis</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/category/cities-and-society</loc>
+  </url>
+  <url>
+    <loc>https://traversal.ist/author/kyle-nutter</loc>
+  </url>
+</urlset>
