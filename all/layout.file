@@ -10,6 +10,9 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-162660973-1');
 		</script>
+
+		<!-- AdSense code -->
+		<script data-ad-client="ca-pub-8383895211379289" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<?php } ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title><?php echo $pagetitle; ?>Traversalist</title>
