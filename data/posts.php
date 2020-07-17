@@ -13,7 +13,11 @@ $posts = array(
 	'how-to-authenticate-anonymous-users-in-rails' => array('title'=>'How to authenticate anonymous users in Rails',
 		'author'=>'ben','date'=>'2020-04-14','category'=>'pr',
 		'image'=>'003-codingoutside-Yhc7YGZlz3g-unsplash.jpg','content_html'=>'003-auth-anon-users-rails.html',
-		'description'=>'Grow your app by allowing your audience to fully use your service, while never needing to create an account.')
+		'description'=>'Grow your app by allowing your audience to fully use your service, while never needing to create an account.'),
+	'remote-work-and-accessibility' => array('title'=>'What working remotely has taught me about accessibility and strategic work',
+			'author'=>'ben','date'=>'2020-05-19','category'=>'tech',
+			'image'=>'004-satellitedish.jpg','content_html'=>'004-remote-accessibility.html',
+			'description'=>'As we spread out from our urban offices and begin to work remotely, challenges and opportunities arise.')
 );
 
 // placeholder content
@@ -89,7 +93,7 @@ function latest_posts($limit){
 }
 
 // top post, for the homepage banner
-$top_post_slug = 'how-to-authenticate-anonymous-users-in-rails';
+$top_post_slug = 'remote-work-and-accessibility';
 $top_post = $posts[$top_post_slug];
 
 // returns additional top posts for homepage
@@ -97,7 +101,7 @@ function addl_top_posts(){
 	global $posts;
 	// best if there are either 3 or 6 posts here.
 	$addl_top_posts = array_intersect_key($posts, array_flip(
-		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api']
+		['micro-apartments-wont-fix-the-housing-crisis', 'how-to-fake-an-api', 'how-to-authenticate-anonymous-users-in-rails']
 	));
 
 	// include placeholder content in add_top_posts

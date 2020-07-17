@@ -3,7 +3,8 @@
 // real categories
 $categories = array(
 	'cp' => array('name'=>'Cities and Society', 'slug'=>'cities-and-society'),
-	'pr' => array('name'=>'Programming', 'slug'=>'programming')
+	'pr' => array('name'=>'Programming', 'slug'=>'programming'),
+	'tech' => array('name'=>'Technology', 'slug'=>'technology')
 );
 
 // categories for placeholders
